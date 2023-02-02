@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DecentSampler>
+    <ui bgImage="Samples/background.png" width="812" height="375" layoutMode="relative" bgMode="top_left">
+        <tab>
+            <labeled-knob x="280" y="40" label="Tone" type="float" minValue="60" maxValue="22000" value="22000"
+                          textColor="FFFFFFFF" textSize="16" width="150" height="150">
+                <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY"/>
+            </labeled-knob>
+            <labeled-knob x="420" y="40" label="Reverb" type="float" minValue="0" maxValue="1" value="0.5"
+                          textColor="FFFFFFFF" textSize="16" width="150" height="150">
+                <binding type="effect" level="instrument" position="1" parameter="FX_REVERB_WET_LEVEL"/>
+            </labeled-knob>
+        </tab>
+    </ui>
+    <groups seqMode="round_robin">
+        <group seqPosition="1">
+            <sample path="Samples/Kalimba_A#4_82_1.wav" tuning="-0.30" rootNote="82" start="6808" end="94385"
+                    loNote="79" hiNote="84" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_B3_71_1.wav" volume="6.0dB" tuning="-0.20" rootNote="71" start="6808"
+                    end="132274" loNote="70" hiNote="71" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_C4_72_1.wav" tuning="0.00" rootNote="72" start="6808" end="103740" loNote="72"
+                    hiNote="73" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D#3_63_1.wav" tuning="-0.45" rootNote="63" start="6808" end="154768"
+                    loNote="62" hiNote="64" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D#4_75_1.wav" volume="4.0dB" tuning="0.05" rootNote="75" start="6808"
+                    end="138844" loNote="74" hiNote="78" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D3_62_1.wav" tuning="-0.50" rootNote="62" start="6808" end="102718"
+                    loNote="60" hiNote="61" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_F3_65_1.wav" volume="2.9999997615814dB" tuning="-0.10" rootNote="65"
+                    start="6808" end="148242" loNote="65" hiNote="67" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_G#3_68_1.wav" volume="0.99999982118607dB" tuning="0.30" rootNote="68"
+                    start="6808" end="102604" loNote="68" hiNote="69" loVel="1" hiVel="127"/>
+        </group>
+        <group seqPosition="2">
+            <sample path="Samples/Kalimba_A#4_82_2.wav" tuning="-0.30" rootNote="82" start="6804" end="99990"
+                    loNote="79" hiNote="84" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_B3_71_2.wav" volume="6.0dB" tuning="-0.20" rootNote="71" start="6804"
+                    end="149732" loNote="70" hiNote="71" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_C4_72_2.wav" tuning="0.00" rootNote="72" start="6804" end="145850" loNote="72"
+                    hiNote="73" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D#3_63_2.wav" tuning="-0.45" rootNote="63" start="6804" end="137832"
+                    loNote="62" hiNote="64" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D#4_75_2.wav" volume="4.0dB" tuning="0.05" rootNote="75" start="6804"
+                    end="137355" loNote="74" hiNote="78" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_F3_65_2.wav" volume="2.9999997615814dB" tuning="0.00" rootNote="65"
+                    start="6804" end="130224" loNote="65" hiNote="67" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_G#3_68_2.wav" volume="3.0000007152557dB" tuning="0.30" rootNote="68"
+                    start="6804" end="109547" loNote="68" hiNote="69" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D3_62_2.wav" tuning="-0.40" rootNote="62" start="6804" end="114134"
+                    loNote="60" hiNote="61" loVel="1" hiVel="127"/>
+        </group>
+        <group seqPosition="3">
+            <sample path="Samples/Kalimba_A#4_82_3.wav" tuning="-0.30" rootNote="82" start="6804" end="101385"
+                    loNote="79" hiNote="84" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_B3_71_3.wav" volume="6.0dB" tuning="-0.20" rootNote="71" start="6804"
+                    end="163681" loNote="70" hiNote="71" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_C4_72_3.wav" tuning="0.00" rootNote="72" start="6804" end="162181" loNote="72"
+                    hiNote="73" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D#3_63_3.wav" tuning="-0.45" rootNote="63" start="6804" end="132446"
+                    loNote="62" hiNote="64" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D#4_75_3.wav" volume="4.0dB" tuning="0.05" rootNote="75" start="6804"
+                    end="117200" loNote="74" hiNote="78" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_F3_65_3.wav" volume="2.9999997615814dB" tuning="-0.10" rootNote="65"
+                    start="6804" end="126937" loNote="65" hiNote="67" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_G#3_68_3.wav" volume="1.0dB" tuning="0.30" rootNote="68" start="6804"
+                    end="115994" loNote="68" hiNote="69" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D3_62_3.wav" tuning="-0.40" rootNote="62" start="6804" end="100035"
+                    loNote="60" hiNote="61" loVel="1" hiVel="127"/>
+        </group>
+        <group seqPosition="4">
+            <sample path="Samples/Kalimba_A#4_82_4.wav" tuning="-0.30" rootNote="82" start="6804" end="98879"
+                    loNote="79" hiNote="84" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_B3_71_4.wav" volume="6.0dB" tuning="-0.20" rootNote="71" start="6804"
+                    end="172087" loNote="70" hiNote="71" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_C4_72_4.wav" tuning="0.00" rootNote="72" start="6804" end="148110" loNote="72"
+                    hiNote="73" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D#3_63_4.wav" tuning="-0.45" rootNote="63" start="6804" end="163636"
+                    loNote="62" hiNote="64" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D#4_75_4.wav" volume="4.0dB" tuning="0.05" rootNote="75" start="6804"
+                    end="110799" loNote="74" hiNote="78" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_D3_62_4.wav" tuning="-0.50" rootNote="62" start="6804" end="136774"
+                    loNote="60" hiNote="61" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_F3_65_4.wav" volume="3.0dB" tuning="-0.20" rootNote="65" start="6804"
+                    end="131068" loNote="65" hiNote="67" loVel="1" hiVel="127"/>
+            <sample path="Samples/Kalimba_G#3_68_4.wav" volume="3.0dB" tuning="0.30" rootNote="68" start="6804"
+                    end="100376" loNote="68" hiNote="69" loVel="1" hiVel="127"/>
+        </group>
+    </groups>
+    <effects>
+        <effect type="lowpass_4pl" frequency="22000"/>
+        <effect type="reverb" wetLevel="0.5"/>
+    </effects>
+</DecentSampler>

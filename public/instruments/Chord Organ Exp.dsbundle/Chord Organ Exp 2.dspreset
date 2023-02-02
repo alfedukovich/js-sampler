@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler>
+  <groups>
+    <group name="Samples">
+      <sample path="Samples/BCO1_Loud_65.wav"
+              name="BCO1_Loud_65" rootNote="65" loNote="65" hiNote="66" loVel="90"
+              hiVel="127" end="211535" loopEnabled="1" loopStart="67804" loopEnd="109736"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_57.wav"
+              name="BCO1_Soft_57" rootNote="57" loNote="57" hiNote="58" loVel="0"
+              hiVel="89" end="189939" loopEnabled="1" loopStart="17076" loopEnd="50670"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_54.wav"
+              name="BCO1_Loud_54" rootNote="54" loNote="52" hiNote="54" loVel="90"
+              hiVel="127" end="175811" loopEnabled="1" loopStart="62693" loopEnd="96103"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_65.wav"
+              name="BCO1_Soft_65" rootNote="65" loNote="65" hiNote="66" loVel="0"
+              hiVel="89" end="207933" loopEnabled="1" loopStart="76707" loopEnd="110019"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_62.wav"
+              name="BCO1_Loud_62" rootNote="62" loNote="59" hiNote="63" loVel="90"
+              hiVel="127" end="235988" loopEnabled="1" loopStart="131915" loopEnd="178004"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_69.wav"
+              name="BCO1_Soft_69" rootNote="69" loNote="69" hiNote="84" loVel="0"
+              hiVel="89" end="188629" loopEnabled="1" loopStart="28571" loopEnd="75328"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_48.wav"
+              name="BCO1_Soft_48" rootNote="48" loNote="36" hiNote="49" loVel="0"
+              hiVel="89" end="309082" loopEnabled="1" loopStart="120743" loopEnd="187148"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_67.wav"
+              name="BCO1_Loud_67" rootNote="67" loNote="67" hiNote="68" loVel="90"
+              hiVel="127" end="216353" loopEnabled="1" loopStart="96985" loopEnd="151471"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_67.wav"
+              name="BCO1_Soft_67" rootNote="67" loNote="67" hiNote="68" loVel="0"
+              hiVel="89" end="209246" loopEnabled="1" loopStart="65699" loopEnd="101820"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_69.wav"
+              name="BCO1_Loud_69" rootNote="69" loNote="69" hiNote="84" loVel="90"
+              hiVel="127" end="211280" loopEnabled="1" loopStart="76799" loopEnd="114329"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_64.wav"
+              name="BCO1_Soft_64" rootNote="64" loNote="64" hiNote="64" loVel="0"
+              hiVel="89" end="206269" loopEnabled="1" loopStart="104568" loopEnd="144321"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_50.wav"
+              name="BCO1_Soft_50" rootNote="50" loNote="50" hiNote="51" loVel="0"
+              hiVel="89" end="204712" loopEnabled="1" loopStart="112285" loopEnd="151183"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_55.wav"
+              name="BCO1_Loud_55" rootNote="55" loNote="55" hiNote="56" loVel="90"
+              hiVel="127" end="244697" loopEnabled="1" loopStart="90223" loopEnd="152411"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_50.wav"
+              name="BCO1_Loud_50" rootNote="50" loNote="50" hiNote="51" loVel="90"
+              hiVel="127" end="205388" loopEnabled="1" loopStart="17299" loopEnd="77428"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_48.wav"
+              name="BCO1_Loud_48" rootNote="48" loNote="36" hiNote="49" loVel="90"
+              hiVel="127" end="372167" loopEnabled="1" loopStart="232660" loopEnd="297980"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_57.wav"
+              name="BCO1_Loud_57" rootNote="57" loNote="57" hiNote="58" loVel="90"
+              hiVel="127" end="222571" loopEnabled="1" loopStart="102579" loopEnd="139390"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Loud_64.wav"
+              name="BCO1_Loud_64" rootNote="64" loNote="64" hiNote="64" loVel="90"
+              hiVel="127" end="232921" loopEnabled="1" loopStart="39162" loopEnd="84009"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_62.wav"
+              name="BCO1_Soft_62" rootNote="62" loNote="59" hiNote="63" loVel="0"
+              hiVel="89" end="196137" loopEnabled="1" loopStart="70116" loopEnd="102640"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/BCO1_Soft_55.wav"
+              name="BCO1_Soft_55" rootNote="55" loNote="52" hiNote="56" loVel="0"
+              hiVel="89" end="178783" loopEnabled="1" loopStart="73842" loopEnd="105429"
+              loopCrossfade="10" loopCrossfadeMode="linear"/>
+    </group>
+  </groups>
+  <effects>
+    <effect type="lowpass" frequency="22000.0"/>
+    <effect type="chorus"  mix="0.0" modDepth="0.2" modRate="0.2" />
+    <effect type="reverb" wetLevel="0.5"/>
+  </effects>
+  <ui width="812" height="375" bgImage="Samples/background.jpg">
+    <tab name="main">
+      <labeled-knob x="395" y="60" width="110" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Vel. Sens." type="float" minValue="0.0" maxValue="1" value="0.2" >
+        <binding type="amp" level="instrument" position="0" parameter="AMP_VEL_TRACK" />
+      </labeled-knob>
+      <labeled-knob x="475" y="60" width="110" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Release" type="float" minValue="0.01" maxValue="4.0" value="0.1" >
+        <binding type="amp" level="instrument" position="0" parameter="ENV_RELEASE" />
+      </labeled-knob>
+      <labeled-knob x="555" y="60" width="110" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Chorus" type="float" minValue="0.0" maxValue="1" value="0" >
+        <binding type="effect" level="instrument" position="1" parameter="FX_MIX" />
+      </labeled-knob>
+      <labeled-knob x="635" y="60" width="110" textSize="16" textColor="FF000000"
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999"
+                    label="Tone" type="float" minValue="0.5" maxValue="1" value="1">
+        <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY" translation="table" translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+      </labeled-knob>
+      <labeled-knob x="715" y="60" width="110" textSize="16" trackForegroundColor="CC000000" trackBackgroundColor="66999999" label="Reverb" type="percent" minValue="0" maxValue="100" textColor="FF000000" value="0">
+        <binding type="effect" level="instrument" position="2"  parameter="FX_REVERB_WET_LEVEL" translation="linear" translationOutputMin="0" translationOutputMax="1" />
+      </labeled-knob>
+    </tab>
+    <keyboard>
+      <color loNote="C1" hiNote="B1" color="FF9DCDF5" />
+      <color loNote="C2" hiNote="C4" color="FF3D6DA5" />
+      <color loNote="C#4" hiNote="C5" color="FF9DCDF5" />
+    </keyboard>
+  </ui>
+</DecentSampler>

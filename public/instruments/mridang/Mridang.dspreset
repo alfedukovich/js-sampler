@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecentSampler>
+
+    <ui bgImage="bg/background.jpg" width="812" height="375" layoutMode="relative" bgMode="top_left">
+        <tab>
+            <labeled-knob x="280" y="40" label="Tone" type="float" minValue="77" maxValue="22000" value="22000" textColor="FFFFFFFF" textSize="16" width="150" height="150">
+                <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY" />
+            </labeled-knob>
+            <labeled-knob x="420" y="40" label="Reverb" type="float" minValue="0" maxValue="1" value="0.05" textColor="FFFFFFFF" textSize="16" width="150" height="150" >
+                <binding type="effect" level="instrument" position="1" parameter="FX_REVERB_WET_LEVEL" />
+            </labeled-knob>
+        </tab>
+    </ui>
+
+    <groups seqMode="random">
+        <group name="Te" seqLength="8" rootNote="77" hiNote="77" loNote="77" loVel="0" hiVel="21" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Te_v1_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Te_v1_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Te_v1_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Te_v1_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Te_v1_rr5.wav"/>
+            <sample seqPosition="6" path="samples\Te_v1_rr6.wav"/>
+            <sample seqPosition="7" path="samples\Te_v1_rr7.wav"/>
+            <sample seqPosition="8" path="samples\Te_v1_rr8.wav"/>
+        </group>
+        <group name="Te" seqLength="4" rootNote="77" hiNote="77" loNote="77" loVel="22" hiVel="42" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Te_v2_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Te_v2_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Te_v2_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Te_v2_rr4.wav"/>
+        </group>
+        <group name="Te" seqLength="5" rootNote="77" hiNote="77" loNote="77" loVel="43" hiVel="63" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Te_v3_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Te_v3_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Te_v3_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Te_v3_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Te_v3_rr5.wav"/>
+        </group>
+        <group name="Te" seqLength="4" rootNote="77" hiNote="77" loNote="77" loVel="64" hiVel="85" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Te_v4_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Te_v4_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Te_v4_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Te_v4_rr4.wav"/>
+        </group>
+        <group name="Te" seqLength="6" rootNote="77" hiNote="77" loNote="77" loVel="85" hiVel="107" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Te_v5_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Te_v5_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Te_v5_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Te_v5_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Te_v5_rr5.wav"/>
+            <sample seqPosition="6" path="samples\Te_v5_rr6.wav"/>
+        </group>
+        <group name="Te" seqLength="5" rootNote="77" hiNote="77" loNote="77" loVel="107" hiVel="127" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Te_v6_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Te_v6_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Te_v6_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Te_v6_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Te_v6_rr5.wav"/>
+        </group>
+        
+        
+        <group name="Ta" seqLength="6" rootNote="79" hiNote="79" loNote="79" loVel="0" hiVel="3" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Ta_v2_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Ta_v2_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Ta_v2_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Ta_v2_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Ta_v2_rr5.wav"/>
+            <sample seqPosition="6" path="samples\Ta_v2_rr6.wav"/>
+        </group>
+        <group name="Ta" seqLength="5" rootNote="79" hiNote="79" loNote="79" loVel="4" hiVel="20" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Ta_v3_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Ta_v3_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Ta_v3_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Ta_v3_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Ta_v3_rr5.wav"/>
+        </group>
+        <group name="Ta" seqLength="6" rootNote="79" hiNote="79" loNote="79" loVel="21" hiVel="40" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Ta_v4_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Ta_v4_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Ta_v4_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Ta_v4_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Ta_v4_rr5.wav"/>
+            <sample seqPosition="6" path="samples\Ta_v4_rr6.wav"/>
+        </group>
+        <group name="Ta" seqLength="6" rootNote="79" hiNote="79" loNote="79" loVel="41" hiVel="60" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Ta_v5_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Ta_v5_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Ta_v5_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Ta_v5_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Ta_v5_rr5.wav"/>
+            <sample seqPosition="6" path="samples\Ta_v5_rr6.wav"/>
+        </group>
+        <group name="Ta" seqLength="6" rootNote="79" hiNote="79" loNote="79" loVel="61" hiVel="80" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Ta_v6_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Ta_v6_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Ta_v6_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Ta_v6_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Ta_v6_rr5.wav"/>
+            <sample seqPosition="6" path="samples\Ta_v6_rr6.wav"/>
+        </group>
+        <group name="Ta" seqLength="7" rootNote="79" hiNote="79" loNote="79" loVel="81" hiVel="96" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Ta_v7_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Ta_v7_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Ta_v7_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Ta_v7_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Ta_v7_rr5.wav"/>
+            <sample seqPosition="6" path="samples\Ta_v7_rr6.wav"/>
+            <sample seqPosition="7" path="samples\Ta_v7_rr7.wav"/>
+        </group>
+        <group name="Ta" seqLength="10" rootNote="79" hiNote="79" loNote="79" loVel="97" hiVel="112" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Ta_v8_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Ta_v8_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Ta_v8_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Ta_v8_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Ta_v8_rr5.wav"/>
+            <sample seqPosition="6" path="samples\Ta_v8_rr6.wav"/>
+            <sample seqPosition="7" path="samples\Ta_v8_rr7.wav"/>
+            <sample seqPosition="8" path="samples\Ta_v8_rr8.wav"/>
+            <sample seqPosition="9" path="samples\Ta_v8_rr9.wav"/>
+            <sample seqPosition="10" path="samples\Ta_v8_rr10.wav"/>
+        </group>
+        <group name="Ta" seqLength="5" rootNote="79" hiNote="79" loNote="79" loVel="113" hiVel="127" tags="small" silencedByTags="small" silencingMode="fast">
+            <sample seqPosition="1" path="samples\Ta_v9_rr1.wav"/>
+            <sample seqPosition="2" path="samples\Ta_v9_rr2.wav"/>
+            <sample seqPosition="3" path="samples\Ta_v9_rr3.wav"/>
+            <sample seqPosition="4" path="samples\Ta_v9_rr4.wav"/>
+            <sample seqPosition="5" path="samples\Ta_v9_rr5.wav"/>
+        </group>
+    </groups>
+
+    <effects>
+        <effect type="lowpass" frequency="22000.0"/>
+        <effect type="reverb" wetLevel="0.5"/>
+    </effects>
+
+
+</DecentSampler>

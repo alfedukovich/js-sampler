@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler>
+  <groups>
+    <group name="BCO2" seqMode="random" seqLength="3" loopEnabled="1" loopCrossfade="10" loopCrossfadeMode="linear">
+      <sample path="Samples/BCO2_Loud_57-001.wav" seqPosition="1" rootNote="57" loNote="57" hiNote="58" loVel="96" hiVel="127" tuning="0.009999999776482582" end="310062" loopStart="40380" loopEnd="98845" />
+      <sample path="Samples/BCO2_Loud_59-001.wav" seqPosition="1" rootNote="59" loNote="59" hiNote="59" loVel="96" hiVel="127" end="339321" loopStart="168070" loopEnd="226962" />
+      <sample path="Samples/BCO2_Loud_67-001.wav" seqPosition="1" rootNote="67" loNote="67" hiNote="69" loVel="96" hiVel="127" end="308837" loopStart="126927" loopEnd="182153" />
+      <sample path="Samples/BCO2_Loud_60-001.wav" seqPosition="1" rootNote="60" loNote="60" hiNote="61" loVel="96" hiVel="127" end="332626" loopStart="162334" loopEnd="232419" />
+      <sample path="Samples/BCO2_Loud_72-001.wav" seqPosition="1" rootNote="72" loNote="72" hiNote="96" loVel="96" hiVel="127" tuning="0.009999999776482582" end="405447" loopStart="200021" loopEnd="281844" />
+      <sample path="Samples/BCO2_Loud_64-001.wav" seqPosition="1" rootNote="64" loNote="64" hiNote="64" loVel="96" hiVel="127" end="257626" loopStart="110199" loopEnd="159696" />
+      <sample path="Samples/BCO2_Loud_52-001.wav" seqPosition="1" rootNote="52" loNote="52" hiNote="52" loVel="96" hiVel="127" tuning="0.01999999955296516" end="292491" loopStart="155006" loopEnd="211769" />
+      <sample path="Samples/BCO2_Loud_55-001.wav" seqPosition="1" rootNote="55" loNote="55" hiNote="56" loVel="96" hiVel="127" end="250562" loopStart="48717" loopEnd="90583" />
+      <sample path="Samples/BCO2_Loud_71-001.wav" seqPosition="1" rootNote="71" loNote="70" hiNote="71" loVel="96" hiVel="127" end="370074" loopStart="225980" loopEnd="291781" />
+      <sample path="Samples/BCO2_Loud_65-001.wav" seqPosition="1" rootNote="65" loNote="65" hiNote="66" loVel="96" hiVel="127" tuning="0.02999999932944775" end="363845" loopStart="146857" loopEnd="213914" />
+      <sample path="Samples/BCO2_Loud_49-001.wav" seqPosition="1" rootNote="49" loNote="24" hiNote="49" loVel="96" hiVel="127" tuning="0.03999999910593033" end="264883" loopStart="32204" loopEnd="84137" />
+      <sample path="Samples/BCO2_Loud_62-001.wav" seqPosition="1" rootNote="62" loNote="62" hiNote="63" loVel="96" hiVel="127" end="248671" loopStart="17590" loopEnd="64975" />
+      <sample path="Samples/BCO2_Loud_53-001.wav" seqPosition="1" rootNote="53" loNote="53" hiNote="54" loVel="96" hiVel="127" tuning="0.009999999776482582" end="481750" loopStart="238311" loopEnd="319107" />
+      <sample path="Samples/BCO2_Loud_50-001.wav" seqPosition="1" rootNote="50" loNote="50" hiNote="51" loVel="96" hiVel="127" tuning="-0.01999999955296516" end="302690" loopStart="87006" loopEnd="164785" />
+      <sample path="Samples/BCO2_Soft_65-001.wav" seqPosition="1" rootNote="65" loNote="65" hiNote="66" loVel="0" hiVel="95" tuning="0.02999999932944775" end="205777" loopStart="69509" loopEnd="106747" />
+      <sample path="Samples/BCO2_Soft_59-001.wav" seqPosition="1" rootNote="59" loNote="59" hiNote="59" loVel="0" hiVel="95" tuning="0.009999999776482582" end="376465" loopStart="117717" loopEnd="184191" />
+      <sample path="Samples/BCO2_Soft_49-001.wav" seqPosition="1" rootNote="49" loNote="24" hiNote="49" loVel="0" hiVel="95" end="240538" loopStart="52033" loopEnd="100499" />
+      <sample path="Samples/BCO2_Soft_71-001.wav" seqPosition="1" rootNote="71" loNote="70" hiNote="71" loVel="0" hiVel="95" tuning="-0.009999999776482582" end="376769" loopStart="97196" loopEnd="160269" />
+      <sample path="Samples/BCO2_Soft_64-001.wav" seqPosition="1" rootNote="64" loNote="64" hiNote="64" loVel="0" hiVel="95" end="312724" loopStart="67431" loopEnd="119408" />
+      <sample path="Samples/BCO2_Soft_54-001.wav" seqPosition="1" rootNote="54" loNote="54" hiNote="54" loVel="0" hiVel="95" end="301714" loopStart="52905" loopEnd="107130" />
+      <sample path="Samples/BCO2_Soft_57-001.wav" seqPosition="1" rootNote="57" loNote="57" hiNote="58" loVel="0" hiVel="95" end="300891" loopStart="12986" loopEnd="67526" />
+      <sample path="Samples/BCO2_Soft_50-001.wav" seqPosition="1" rootNote="50" loNote="50" hiNote="51" loVel="0" hiVel="95" tuning="-0.02999999932944775" end="200605" loopStart="92882" loopEnd="126543" />
+      <sample path="Samples/BCO2_Soft_72-001.wav" seqPosition="1" rootNote="72" loNote="72" hiNote="96" loVel="0" hiVel="95" tuning="0.009999999776482582" end="305940" loopStart="28736" loopEnd="83130" />
+      <sample path="Samples/BCO2_Soft_60-001.wav" seqPosition="1" rootNote="60" loNote="60" hiNote="61" loVel="0" hiVel="95" end="389574" loopStart="15566" loopEnd="82341" />
+      <sample path="Samples/BCO2_Soft_67-001.wav" seqPosition="1" rootNote="67" loNote="67" hiNote="69" loVel="0" hiVel="95" tuning="0.009999999776482582" end="328661" loopStart="80763" loopEnd="183236" />
+      <sample path="Samples/BCO2_Soft_55-001.wav" seqPosition="1" rootNote="55" loNote="55" hiNote="56" loVel="0" hiVel="95" tuning="-0.01999999955296516" end="328175" loopStart="181869" loopEnd="238930" />
+      <sample path="Samples/BCO2_Soft_52-001.wav" seqPosition="1" rootNote="52" loNote="52" hiNote="53" loVel="0" hiVel="95" tuning="0.03999999910593033" end="227886" loopStart="111507" loopEnd="150537" />
+      <sample path="Samples/BCO2_Soft_62-001.wav" seqPosition="1" rootNote="62" loNote="62" hiNote="63" loVel="0" hiVel="95" end="318424" loopStart="23512" loopEnd="104560" />
+      <sample path="Samples/BCO2_Soft_67-002.wav" seqPosition="2" rootNote="67" loNote="67" hiNote="69" loVel="0" hiVel="95" end="371786" loopStart="111066" loopEnd="182078" />
+      <sample path="Samples/BCO2_Soft_64-002.wav" seqPosition="2" rootNote="64" loNote="64" hiNote="64" loVel="0" hiVel="95" end="370231" loopStart="127710" loopEnd="202257" />
+      <sample path="Samples/BCO2_Soft_62-002.wav" seqPosition="2" rootNote="62" loNote="62" hiNote="63" loVel="0" hiVel="95" end="327391" loopStart="85601" loopEnd="184137" />
+      <sample path="Samples/BCO2_Soft_72-002.wav" seqPosition="2" rootNote="72" loNote="72" hiNote="96" loVel="0" hiVel="95" tuning="0.009999999776482582" end="367338" loopStart="14790" loopEnd="85970" />
+      <sample path="Samples/BCO2_Soft_49-002.wav" seqPosition="2" rootNote="49" loNote="24" hiNote="49" loVel="0" hiVel="95" end="262130" loopStart="89904" loopEnd="140114" />
+      <sample path="Samples/BCO2_Soft_59-002.wav" seqPosition="2" rootNote="59" loNote="59" hiNote="59" loVel="0" hiVel="95" tuning="0.009999999776482582" end="356671" loopStart="159669" loopEnd="241483" />
+      <sample path="Samples/BCO2_Soft_57-002.wav" seqPosition="2" rootNote="57" loNote="57" hiNote="58" loVel="0" hiVel="95" end="349406" loopStart="39813" loopEnd="105262" />
+      <sample path="Samples/BCO2_Soft_71-002.wav" seqPosition="2" rootNote="71" loNote="70" hiNote="71" loVel="0" hiVel="95" tuning="-0.009999999776482582" end="385505" loopStart="45301" loopEnd="132766" />
+      <sample path="Samples/BCO2_Soft_50-002.wav" seqPosition="2" rootNote="50" loNote="50" hiNote="51" loVel="0" hiVel="95" tuning="-0.02999999932944775" end="255316" loopStart="12993" loopEnd="71171" />
+      <sample path="Samples/BCO2_Soft_54-002.wav" seqPosition="2" rootNote="54" loNote="54" hiNote="54" loVel="0" hiVel="95" end="356389" loopStart="18839" loopEnd="121846" />
+      <sample path="Samples/BCO2_Soft_60-002.wav" seqPosition="2" rootNote="60" loNote="60" hiNote="61" loVel="0" hiVel="95" end="383771" loopStart="158098" loopEnd="227443" />
+      <sample path="Samples/BCO2_Soft_52-002.wav" seqPosition="2" rootNote="52" loNote="52" hiNote="53" loVel="0" hiVel="95" tuning="0.03999999910593033" end="341270" loopStart="143074" loopEnd="208035" />
+      <sample path="Samples/BCO2_Soft_55-002.wav" seqPosition="2" rootNote="55" loNote="55" hiNote="56" loVel="0" hiVel="95" tuning="-0.01999999955296516" end="365058" loopStart="206245" loopEnd="271875" />
+      <sample path="Samples/BCO2_Soft_65-002.wav" seqPosition="2" rootNote="65" loNote="65" hiNote="66" loVel="0" hiVel="95" tuning="0.02999999932944775" end="306182" loopStart="99265" loopEnd="151899" />
+      <sample path="Samples/BCO2_Loud_72-002.wav" seqPosition="2" rootNote="72" loNote="72" hiNote="96" loVel="96" hiVel="127" tuning="0.009999999776482582" end="437473" loopStart="63442" loopEnd="154252" />
+      <sample path="Samples/BCO2_Loud_55-002.wav" seqPosition="2" rootNote="55" loNote="55" hiNote="56" loVel="96" hiVel="127" tuning="0.009999999776482582" end="376212" loopStart="50978" loopEnd="116846" />
+      <sample path="Samples/BCO2_Loud_64-002.wav" seqPosition="2" rootNote="64" loNote="64" hiNote="64" loVel="96" hiVel="127" end="355817" loopStart="19489" loopEnd="80521" />
+      <sample path="Samples/BCO2_Loud_62-002.wav" seqPosition="2" rootNote="62" loNote="62" hiNote="63" loVel="96" hiVel="127" end="316290" loopStart="15138" loopEnd="77229" />
+      <sample path="Samples/BCO2_Loud_71-002.wav" seqPosition="2" rootNote="71" loNote="70" hiNote="71" loVel="96" hiVel="127" end="373130" loopStart="37922" loopEnd="198670" />
+      <sample path="Samples/BCO2_Loud_52-002.wav" seqPosition="2" rootNote="52" loNote="52" hiNote="52" loVel="96" hiVel="127" tuning="0.01999999955296516" end="374029" loopStart="212148" loopEnd="273563" />
+      <sample path="Samples/BCO2_Loud_67-002.wav" seqPosition="2" rootNote="67" loNote="67" hiNote="69" loVel="96" hiVel="127" end="307796" loopStart="129805" loopEnd="183188" />
+      <sample path="Samples/BCO2_Loud_59-002.wav" seqPosition="2" rootNote="59" loNote="59" hiNote="59" loVel="96" hiVel="127" end="416108" loopStart="103170" loopEnd="172749" />
+      <sample path="Samples/BCO2_Loud_60-002.wav" seqPosition="2" rootNote="60" loNote="60" hiNote="61" loVel="96" hiVel="127" tuning="-0.009999999776482582" end="299977" loopStart="123804" loopEnd="177556" />
+      <sample path="Samples/BCO2_Loud_65-002.wav" seqPosition="2" rootNote="65" loNote="65" hiNote="66" loVel="96" hiVel="127" tuning="0.02999999932944775" end="360423" loopStart="118263" loopEnd="181201" />
+      <sample path="Samples/BCO2_Loud_53-002.wav" seqPosition="2" rootNote="53" loNote="53" hiNote="54" loVel="96" hiVel="127" end="496195" loopStart="55572" loopEnd="142978" />
+      <sample path="Samples/BCO2_Loud_57-002.wav" seqPosition="2" rootNote="57" loNote="57" hiNote="58" loVel="96" hiVel="127" tuning="0.01999999955296516" end="424092" loopStart="19010" loopEnd="99526"/>
+      <sample path="Samples/BCO2_Loud_50-002.wav" seqPosition="2" rootNote="50" loNote="50" hiNote="51" loVel="96" hiVel="127" tuning="-0.01999999955296516" end="355488" loopStart="130475" loopEnd="205641" />
+      <sample path="Samples/BCO2_Loud_49-002.wav" seqPosition="2" rootNote="49" loNote="24" hiNote="49" loVel="96" hiVel="127" tuning="0.03999999910593033" end="335810" loopStart="157599" loopEnd="220963" />
+      <sample path="Samples/BCO2_Loud_52-003.wav" seqPosition="3" rootNote="52" loNote="52" hiNote="52" loVel="96" hiVel="127" tuning="0.009999999776482582" end="351576" loopStart="150349" loopEnd="217901" />
+      <sample path="Samples/BCO2_Loud_49-003.wav" seqPosition="3" rootNote="49" loNote="24" hiNote="49" loVel="96" hiVel="127" tuning="0.02999999932944775" end="362266" loopStart="218870" loopEnd="284325" />
+      <sample path="Samples/BCO2_Loud_53-003.wav" seqPosition="3" rootNote="53" loNote="53" hiNote="54" loVel="96" hiVel="127" tuning="-0.009999999776482582" end="351635" loopStart="136314" loopEnd="197334" />
+      <sample path="Samples/BCO2_Loud_64-003.wav" seqPosition="3" rootNote="64" loNote="64" hiNote="65" loVel="96" hiVel="127" end="361417" loopStart="220294" loopEnd="283483" />
+      <sample path="Samples/BCO2_Loud_72-003.wav" seqPosition="3" rootNote="72" loNote="72" hiNote="96" loVel="96" hiVel="127" end="400724" loopStart="132139" loopEnd="236984" />
+      <sample path="Samples/BCO2_Loud_50-003.wav" seqPosition="3" rootNote="50" loNote="50" hiNote="51" loVel="96" hiVel="127" tuning="-0.01999999955296516" end="372820" loopStart="142576" loopEnd="214811" />
+      <sample path="Samples/BCO2_Loud_57-003.wav" seqPosition="3" rootNote="57" loNote="57" hiNote="58" loVel="96" hiVel="127" tuning="0.01999999955296516" end="466778" loopStart="291993" loopEnd="370535" />
+      <sample path="Samples/BCO2_Loud_62-003.wav" seqPosition="3" rootNote="62" loNote="62" hiNote="63" loVel="96" hiVel="127" end="361923" loopStart="82719" loopEnd="152661" />
+      <sample path="Samples/BCO2_Loud_71-003.wav" seqPosition="3" rootNote="71" loNote="70" hiNote="71" loVel="96" hiVel="127" end="374459" loopStart="178937" loopEnd="256879" />
+      <sample path="Samples/BCO2_Loud_59-003.wav" seqPosition="3" rootNote="59" loNote="59" hiNote="59" loVel="96" hiVel="127" end="536663" loopStart="220552" loopEnd="312293" />
+      <sample path="Samples/BCO2_Loud_55-003.wav" seqPosition="3" rootNote="55" loNote="55" hiNote="56" loVel="96" hiVel="127" tuning="0.02999999932944775" end="349804" loopStart="182944" loopEnd="242926" />
+      <sample path="Samples/BCO2_Loud_60-003.wav" seqPosition="3" rootNote="60" loNote="60" hiNote="61" loVel="96" hiVel="127" tuning="-0.009999999776482582" end="342131" loopStart="169132" loopEnd="228206" />
+      <sample path="Samples/BCO2_Loud_67-003.wav" seqPosition="3" rootNote="67" loNote="66" hiNote="69" loVel="96" hiVel="127" end="351021" loopStart="51810" loopEnd="129314" />
+      <sample path="Samples/BCO2_Soft_52-003.wav" seqPosition="3" rootNote="52" loNote="52" hiNote="53" loVel="0" hiVel="95" tuning="0.03999999910593033" end="250093" loopStart="142403" loopEnd="184348" />
+      <sample path="Samples/BCO2_Soft_71-003.wav" seqPosition="3" rootNote="71" loNote="70" hiNote="71" loVel="0" hiVel="95" tuning="-0.009999999776482582" end="382360" loopStart="118575" loopEnd="192434" />
+      <sample path="Samples/BCO2_Soft_64-003.wav" seqPosition="3" rootNote="64" loNote="64" hiNote="64" loVel="0" hiVel="95" end="363546" loopStart="225868" loopEnd="286281" />
+      <sample path="Samples/BCO2_Soft_72-003.wav" seqPosition="3" rootNote="72" loNote="72" hiNote="96" loVel="0" hiVel="95" tuning="0.009999999776482582" end="383703" loopStart="99461" loopEnd="174680" />
+      <sample path="Samples/BCO2_Soft_67-003.wav" seqPosition="3" rootNote="67" loNote="67" hiNote="69" loVel="0" hiVel="95" end="349659" loopStart="43846" loopEnd="112039" />
+      <sample path="Samples/BCO2_Soft_62-003.wav" seqPosition="3" rootNote="62" loNote="62" hiNote="63" loVel="0" hiVel="95" end="296276" loopStart="48419" loopEnd="104630" />
+      <sample path="Samples/BCO2_Soft_54-003.wav" seqPosition="3" rootNote="54" loNote="54" hiNote="54" loVel="0" hiVel="95" end="374207" loopStart="97216" loopEnd="158967" />
+      <sample path="Samples/BCO2_Soft_65-003.wav" seqPosition="3" rootNote="65" loNote="65" hiNote="66" loVel="0" hiVel="95" tuning="0.02999999932944775" end="339844" loopStart="123723" loopEnd="189412" />
+      <sample path="Samples/BCO2_Soft_57-003.wav" seqPosition="3" rootNote="57" loNote="57" hiNote="58" loVel="0" hiVel="95" end="404195" loopStart="213060" loopEnd="296837" />
+      <sample path="Samples/BCO2_Soft_50-003.wav" seqPosition="3" rootNote="50" loNote="50" hiNote="51" loVel="0" hiVel="95" tuning="-0.01999999955296516" end="282496" loopStart="135234" loopEnd="201252" />
+      <sample path="Samples/BCO2_Soft_59-003.wav" seqPosition="3" rootNote="59" loNote="59" hiNote="59" loVel="0" hiVel="95" tuning="0.009999999776482582" end="337719" loopStart="206651" loopEnd="262824" />
+      <sample path="Samples/BCO2_Soft_60-003.wav" seqPosition="3" rootNote="60" loNote="60" hiNote="61" loVel="0" hiVel="95" tuning="-0.009999999776482582" end="410844" loopStart="125072" loopEnd="199741" />
+      <sample path="Samples/BCO2_Soft_49-003.wav" seqPosition="3" rootNote="49" loNote="24" hiNote="49" loVel="0" hiVel="95" end="314554" loopStart="114480" loopEnd="167806" />
+      <sample path="Samples/BCO2_Soft_55-003.wav" seqPosition="3" rootNote="55" loNote="55" hiNote="56" loVel="0" hiVel="95" tuning="-0.01999999955296516" end="340399" loopStart="212064" loopEnd="271082" />
+      <effects/>
+    </group>
+  </groups>
+  <effects>
+    <effect type="lowpass" frequency="22000.0"/>
+    <effect type="chorus"  mix="0.0" modDepth="0.2" modRate="0.2" />
+    <effect type="reverb" wetLevel="0.5"/>
+  </effects>
+  <midi/>
+  <modulators/>
+  <tags/>
+  <ui width="812" height="375" bgImage="Samples/background.jpg">
+    <tab name="main">
+      <labeled-knob x="395" y="60" width="110" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Vel. Sens." type="float" minValue="0.0" maxValue="1" value="0" >
+        <binding type="amp" level="instrument" position="0" parameter="AMP_VEL_TRACK" />
+      </labeled-knob>
+      <labeled-knob x="475" y="60" width="110" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Release" type="float" minValue="0.01" maxValue="4.0" value="0.1" >
+        <binding type="amp" level="instrument" position="0" parameter="ENV_RELEASE" />
+      </labeled-knob>
+      <labeled-knob x="555" y="60" width="110" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Chorus" type="float" minValue="0.0" maxValue="1" value="0" >
+        <binding type="effect" level="instrument" position="1" parameter="FX_MIX" />
+      </labeled-knob>
+      <labeled-knob x="635" y="60" width="110" textSize="16" textColor="FF000000"
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999"
+                    label="Tone" type="float" minValue="0.5" maxValue="1" value="1">
+        <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY"
+                 translation="table" 
+                 translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+      </labeled-knob>
+      <labeled-knob x="715" y="60" width="110" textSize="16"
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Reverb" type="percent" minValue="0" maxValue="100" 
+                    textColor="FF000000" value="0">
+        <binding type="effect" level="instrument" position="2" 
+                 parameter="FX_REVERB_WET_LEVEL" translation="linear" 
+                 translationOutputMin="0" translationOutputMax="1" />
+      </labeled-knob>
+    </tab>
+    <keyboard>
+        <color loNote="C0" hiNote="B1" color="FF9DCDF5" />
+        <color loNote="C2" hiNote="C4" color="FF3D6DA5" />
+        <color loNote="C#4" hiNote="C6" color="FF9DCDF5" />
+    </keyboard>
+  </ui>
+</DecentSampler>

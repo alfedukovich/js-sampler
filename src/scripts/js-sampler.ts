@@ -4,5 +4,8 @@ export { Note } from "./classes/Note"
 export { Sample } from "./classes/Sample"
 export { Source } from "./classes/Source"
 
+export * as Tone from "tone"
+
+
 
 

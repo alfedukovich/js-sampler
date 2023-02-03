@@ -1,5 +1,5 @@
-import {Instrument} from "../js-sampler";
-import * as Tone from "tone";
+import {Instrument} from "../js-sampler"
+import * as Tone from "tone"
 
 
 export interface PalyerInstrumentOptions {

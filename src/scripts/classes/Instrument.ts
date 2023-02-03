@@ -59,7 +59,7 @@ export class Instrument {
         } catch (_) {
             parse_url = new URL(url, window.location.origin)
         }
-        this.baseUrl = parse_url.pathname.substring(0, parse_url.pathname.lastIndexOf("/")) + '/'
+        this.baseUrl = parse_url.origin + parse_url.pathname.substring(0, parse_url.pathname.lastIndexOf("/")) + '/'
 
         try {
             const parser = new DOMParser()

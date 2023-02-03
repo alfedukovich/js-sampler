@@ -1,10 +1,9 @@
 import './scss/style.scss'
 import * as jsSampler from './scripts/js-sampler'
-import * as Tone from "tone";
 
 const instr = new jsSampler.Instrument({
     name: 'organ',
-    url: '/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
+    url: 'https://mc.v-helper.ru/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
     onLoad: ()=>{
         console.log(instr)
     },
@@ -12,7 +11,7 @@ const instr = new jsSampler.Instrument({
 //
 // const instr = new jsSampler.Instrument({
 //     name: 'ektra',
-//     url: '/instruments/The Ektara.dsbundle/The Ektara - Normal Patch.dspreset',
+//     url: 'https://mc.v-helper.ru/instruments/The Ektara.dsbundle/The Ektara - Normal Patch.dspreset',
 //     onLoad: ()=>{
 //         console.log(instr)
 //     },
@@ -20,7 +19,7 @@ const instr = new jsSampler.Instrument({
 //
 // const instr = new jsSampler.Instrument({
 //     name: 'kalimba',
-//     url: '/instruments/Gourd Kalimba.dsbundle/Kalimba.dspreset',
+//     url: 'https://mc.v-helper.ru/instruments/Gourd Kalimba.dsbundle/Kalimba.dspreset',
 //     onLoad: ()=>{
 //         console.log(instr)
 //     },
@@ -28,7 +27,7 @@ const instr = new jsSampler.Instrument({
 //
 // const instr = new jsSampler.Instrument({
 //     name: 'kartals',
-//     url: '/instruments/kartals/Kartals.dspreset',
+//     url: 'https://mc.v-helper.ru/instruments/kartals/Kartals.dspreset',
 //     onLoad: ()=>{
 //         console.log(instr)
 //     },
@@ -48,17 +47,17 @@ let source: jsSampler.Source | null
 elements.forEach((opt) => {
     opt.addEventListener('mousedown', (e) => {
         const velocity = e.layerY / opt.offsetHeight
-        source = instr.triggerAttack(parseInt(opt.id), Tone.now(), velocity, 1)
+        source = instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
     })
     opt.addEventListener('mouseleave', () => {
         if(source) {
-            instr.triggerRelease(source, Tone.now())
+            instr.triggerRelease(source, jsSampler.Tone.now())
             source = null
         }
     })
     opt.addEventListener('mouseup', () => {
         if(source) {
-            instr.triggerRelease(source, Tone.now())
+            instr.triggerRelease(source, jsSampler.Tone.now())
             source = null
         }
     })
@@ -74,7 +73,7 @@ const composition = {
             volume: 1,
             instrument: {
                 name: 'organ',
-                url: '/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
+                url: 'https://mc.v-helper.ru/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
             },
             events: [
                 {
@@ -365,7 +364,7 @@ const composition = {
             volume: .5,
             instrument: {
                 name: 'kartals',
-                url: '/instruments/kartals/Kartals.dspreset',
+                url: 'https://mc.v-helper.ru/instruments/kartals/Kartals.dspreset',
             },
             events: [
                 {

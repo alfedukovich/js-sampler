@@ -1,6 +1,7 @@
 import { resolve } from 'path'
+import { defineConfig } from 'vite'
 
-export default {
+export default defineConfig({
     build: {
         copyPublicDir: false,
         lib: {
@@ -9,4 +10,4 @@ export default {
             fileName: 'js-sampler',
         },
     },
-}
+})

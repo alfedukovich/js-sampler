@@ -664,9 +664,10 @@ const composition = {
 
 const buttonPlay = document.querySelector<HTMLButtonElement>('#play')!
 const buttonPause = document.querySelector<HTMLButtonElement>('#pause')!
+const buttonStop = document.querySelector<HTMLButtonElement>('#stop')!
+const buttonBpm80 = document.querySelector<HTMLButtonElement>('#bpm80')!
 const buttonBpm100 = document.querySelector<HTMLButtonElement>('#bpm100')!
 const buttonBpm120 = document.querySelector<HTMLButtonElement>('#bpm120')!
-const buttonBpm80 = document.querySelector<HTMLButtonElement>('#bpm80')!
 const buttonBpm140 = document.querySelector<HTMLButtonElement>('#bpm140')!
 
 const player = new jsSampler.Player({
@@ -680,14 +681,17 @@ const player = new jsSampler.Player({
         buttonPause.addEventListener('click', () => {
             player.pause()
         })
+        buttonStop.addEventListener('click', () => {
+            player.stop(true)
+        })
+        buttonBpm80.addEventListener('click', () => {
+            player.mpm = 80
+        })
         buttonBpm100.addEventListener('click', () => {
             player.mpm = 100
         })
         buttonBpm120.addEventListener('click', () => {
             player.mpm = 120
-        })
-        buttonBpm80.addEventListener('click', () => {
-            player.mpm = 80
         })
         buttonBpm140.addEventListener('click', () => {
             player.mpm = 140

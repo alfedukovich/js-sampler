@@ -265,12 +265,17 @@ export class Player {
         this.currentTime = Tone.now()
     }
 
-    public stop(){
+    public stop(fast?: boolean){
         this._stopped = true
         this.currentPosition = 0
         this.currentCycle = 0
         this.currentPercent = 0
         this._buffPosition = 0
+        if (fast) {
+            this.instruments.forEach((instrument) => {
+                instrument.stopNotesSources()
+            })
+        }
         this._play = false
     }
 

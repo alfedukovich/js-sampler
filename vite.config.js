@@ -7,7 +7,7 @@ export default defineConfig({
         lib: {
             entry: resolve(__dirname, 'src/scripts/js-sampler.ts'),
             name: 'jssampler',
-            fileName: 'js-sampler',
+            fileName: (format) => `js-sampler.${format}.js`
         },
     },
 })

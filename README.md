@@ -1,6 +1,8 @@
 js-sampler
 =========
 
+[Demo page](https://alfedukovich.github.io/js-sampler/)
+
 ## Installation
 
 To install the latest stable version.

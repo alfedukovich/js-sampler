@@ -1,6 +1,6 @@
 {
   "name": "js-sampler",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Java Script Web Audio Sampler. Can read and play DecentSampler file format.",
   "type": "module",
   "files": [
@@ -9,6 +9,7 @@
   ],
   "main": "./dist/js-sampler.umd.js",
   "module": "./dist/js-sampler.es.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/js-sampler.es.js",
@@ -23,7 +24,8 @@
   "devDependencies": {
     "sass": "^1.57.1",
     "typescript": "^4.9.3",
-    "vite": "^4.1.1"
+    "vite": "^4.1.1",
+    "vite-plugin-dts": "^1.7.2"
   },
   "dependencies": {
     "tone": "^14.7.77"

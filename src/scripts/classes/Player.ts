@@ -1,4 +1,4 @@
-import {Instrument} from "../js-sampler"
+import {Instrument} from "./Instrument"
 import * as Tone from "tone"
 
 

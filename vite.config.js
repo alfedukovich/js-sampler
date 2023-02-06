@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import dts from "vite-plugin-dts"
 
 export default defineConfig({
     build: {
@@ -7,10 +8,16 @@ export default defineConfig({
         outDir: "dist",
         sourcemap: true,
         lib: {
-            entry: resolve(__dirname, 'src/scripts/js-sampler.ts'),
+            entry: resolve(__dirname, 'src/scripts/index.ts'),
             formats: ['es', 'umd', 'cjs'],
             name: 'jsSampler',
             fileName: (format) => `js-sampler.${format}.js`
         },
     },
+    plugins: [
+        dts({
+            outputDir: 'dist/esm',
+            insertTypesEntry: true,
+        }),
+    ],
 })

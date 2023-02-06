@@ -1,5 +1,5 @@
 import './scss/style.scss'
-import * as jsSampler from './scripts/js-sampler'
+import * as jsSampler from './scripts'
 
 // const instr = new jsSampler.Instrument({
 //     name: 'organ',

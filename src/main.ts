@@ -1,13 +1,13 @@
 import './scss/style.scss'
 import * as jsSampler from './scripts/js-sampler'
 
-const instr = new jsSampler.Instrument({
-    name: 'organ',
-    url: 'https://mc.v-helper.ru/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
-    onLoad: ()=>{
-        console.log(instr)
-    },
-})
+// const instr = new jsSampler.Instrument({
+//     name: 'organ',
+//     url: 'https://mc.v-helper.ru/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
+//     onLoad: ()=>{
+//         console.log(instr)
+//     },
+// })
 //
 // const instr = new jsSampler.Instrument({
 //     name: 'ektra',
@@ -33,35 +33,7 @@ const instr = new jsSampler.Instrument({
 //     },
 // })
 
-const card = document.querySelector<HTMLDivElement>('.card')!
 
-let html = ''
-for (let i = 24; i<=96; i++) {
-    html += `<button id="${i}" type="button">${i}</button>`
-}
-card.innerHTML = html
-
-const elements = card.querySelectorAll<HTMLButtonElement>('button')
-
-let source: jsSampler.Source | null
-elements.forEach((opt) => {
-    opt.addEventListener('mousedown', (e) => {
-        const velocity = e.layerY / opt.offsetHeight
-        source = instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
-    })
-    opt.addEventListener('mouseleave', () => {
-        if(source) {
-            instr.triggerRelease(source, jsSampler.Tone.now())
-            source = null
-        }
-    })
-    opt.addEventListener('mouseup', () => {
-        if(source) {
-            instr.triggerRelease(source, jsSampler.Tone.now())
-            source = null
-        }
-    })
-})
 
 
 
@@ -701,6 +673,36 @@ const player = new jsSampler.Player({
 
 
 
+const instr = player.getInstrumentByName('organ')
 
+const card = document.querySelector<HTMLDivElement>('.card')!
+
+let html = ''
+for (let i = 24; i<=96; i++) {
+    html += `<button id="${i}" type="button">${i}</button>`
+}
+card.innerHTML = html
+
+const elements = card.querySelectorAll<HTMLButtonElement>('button')
+
+let source: jsSampler.Source | null
+elements.forEach((opt) => {
+    opt.addEventListener('mousedown', (e) => {
+        const velocity = e.layerY / opt.offsetHeight
+        source = instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
+    })
+    opt.addEventListener('mouseleave', () => {
+        if(source) {
+            instr.triggerRelease(source, jsSampler.Tone.now())
+            source = null
+        }
+    })
+    opt.addEventListener('mouseup', () => {
+        if(source) {
+            instr.triggerRelease(source, jsSampler.Tone.now())
+            source = null
+        }
+    })
+})
 
 

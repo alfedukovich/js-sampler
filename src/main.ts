@@ -1,5 +1,6 @@
 import './scss/style.scss'
 import * as jsSampler from './scripts'
+import {PalyerCompositionOptions} from "./scripts/classes/Player";
 
 // const instr = new jsSampler.Instrument({
 //     name: 'organ',
@@ -38,7 +39,7 @@ import * as jsSampler from './scripts'
 
 
 
-const composition = {
+const composition: PalyerCompositionOptions = {
     duration: 64,
     layers: [
         {
@@ -640,6 +641,8 @@ const buttonBpm80 = document.querySelector<HTMLButtonElement>('#bpm80')!
 const buttonBpm100 = document.querySelector<HTMLButtonElement>('#bpm100')!
 const buttonBpm120 = document.querySelector<HTMLButtonElement>('#bpm120')!
 const buttonBpm140 = document.querySelector<HTMLButtonElement>('#bpm140')!
+const buttonVolume = document.querySelector<HTMLButtonElement>('#volume')!
+const buttonVolumeS = document.querySelector<HTMLButtonElement>('#volumes')!
 
 const player = new jsSampler.Player({
     loop: true,
@@ -667,8 +670,14 @@ const player = new jsSampler.Player({
         buttonBpm140.addEventListener('click', () => {
             player.bpm = 140
         })
+        buttonVolume.addEventListener('click', () => {
+            player.setInstrumentVolume('kartals', 1)
+        })
+        buttonVolumeS.addEventListener('click', () => {
+            player.setInstrumentVolume('kartals', .1)
+        })
     },
-    data: composition,
+    composition: composition,
 })
 
 
@@ -688,6 +697,7 @@ const elements = card.querySelectorAll<HTMLButtonElement>('button')
 let source: jsSampler.Source | null
 elements.forEach((opt) => {
     opt.addEventListener('mousedown', (e) => {
+        // @ts-ignore
         const velocity = e.layerY / opt.offsetHeight
         source = instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
     })

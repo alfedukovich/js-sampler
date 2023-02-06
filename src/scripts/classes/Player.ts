@@ -10,29 +10,30 @@ export interface PalyerEventOptions {
     time: number
     note: number
     duration?: number
-    velocity: number
-    volume: number
+    velocity?: number
+    volume?: number
 }
 export interface PalyerLayerOptions {
     volume?: number
     instrument: PalyerInstrumentOptions
-    events: [PalyerEventOptions]
+    events: PalyerEventOptions[]
+}
+export interface PalyerCompositionOptions {
+    duration: number
+    layers: PalyerLayerOptions[]
 }
 export interface PalyerOptions {
     onLoad?: () => void
     loop: boolean
     bpm: number
-    data?: {
-        duration: number
-        layers: [PalyerLayerOptions]
-    }
+    composition?: PalyerCompositionOptions
 }
 
 
 export interface Layer {
-    volume?: null
+    volume?: number
     instrument: Instrument
-    events: [PalyerEventOptions]
+    events: PalyerEventOptions[]
 }
 
 
@@ -46,8 +47,8 @@ export class Player {
     public onLoad: () => void = ()=>{}
     public onStart: () => void = ()=>{}
 
-    public instruments: [Instrument] | [] = []
-    public layers: [Layer] | [] = []
+    public instruments: Instrument[] = []
+    public layers: Layer[] = []
 
     public currentTime: number = 0
     public currentPosition: number = 0
@@ -106,9 +107,9 @@ export class Player {
         this.loop = options.loop
         this.onLoad = options.onLoad? options.onLoad: () => {}
 
-        if (options.data) {
-            this.duration = options.data.duration
-            this.createLayers(options.data.layers)
+        if (options.composition) {
+            this.duration = options.composition.duration
+            this.createLayers(options.composition.layers)
         }
 
         return this
@@ -135,9 +136,9 @@ export class Player {
         }
         return instrument_obj
     }
-    private createLayers(layers: [PalyerLayerOptions]) {
+    private createLayers(layers: PalyerLayerOptions[]) {
         layers.forEach((layer) => {
-            const layer_obj = {
+            const layer_obj: Layer = {
                 volume: layer.volume!==undefined? layer.volume: 1,
                 instrument: this.createInstrument(layer.instrument),
                 events: layer.events
@@ -150,6 +151,23 @@ export class Player {
         return this.instruments.filter((el: Instrument) => el.name === name)[0]
     }
 
+    public getLayersByInstrumentName(name: string): Layer[] {
+        const result_layers: Layer[] = []
+        this.layers.forEach((layer) => {
+            if (layer.instrument.name === name) {
+                result_layers.push(layer)
+            }
+        })
+
+        return result_layers
+    }
+
+    public setInstrumentVolume(instrument_name: string, value: number){
+        const layers = this.getLayersByInstrumentName(instrument_name)
+        layers.forEach((layer) => {
+            layer.volume = value
+        })
+    }
 
 
 
@@ -215,7 +233,7 @@ export class Player {
                                 pos_sum += findLength
                                 events_count++
                                 if (pos_sum <= buffLength) {
-                                    let volume = event.volume
+                                    let volume = event.volume?event.volume:1
                                     if (layer.volume != null) {
                                         volume *= layer.volume
                                     }
@@ -246,7 +264,7 @@ export class Player {
         }
     }
 
-    private _nextEvent(events: [PalyerEventOptions], startPosition: number, first: boolean): {event: PalyerEventOptions | null, findLength: number | null} {
+    private _nextEvent(events: PalyerEventOptions[], startPosition: number, first: boolean): {event: PalyerEventOptions | null, findLength: number | null} {
         const f_events = events.filter(event => {
             return first? event.time >= startPosition: event.time > startPosition
         })

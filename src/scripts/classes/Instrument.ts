@@ -136,11 +136,11 @@ export class Instrument {
 
                 if (time + duration >= 0) {
                     const volume_tun  = parseFloat(sample_to_play.volume.replace('dB', ''))
-                    const vol_filter = new Tone.Volume(volume_tun).toDestination()
-                    const source = new Source().connect(vol_filter).connect(this._reverb)
+                    const vol_filter = new Tone.Volume(volume_tun).connect(this._reverb)
+                    const source = new Source().connect(vol_filter)
 
                     source.onended = (s) => {
-                        const index = note_obj.sources.indexOf(s)
+                        const index = note_obj.sources.indexOf(<Source>s)
                         if (index > -1) {
                             note_obj.sources.splice(index, 1)
                         }

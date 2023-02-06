@@ -109,7 +109,7 @@ const player = new jsSampler.Player({
             player.bpm = 100
         })
     },
-    data: composition,
+    composition: composition,
 })
 ```
 

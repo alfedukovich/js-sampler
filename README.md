@@ -28,10 +28,10 @@ Publish the folder with the instrument sample library and provide a link to the 
 
 #### Events
 
-`time` - bpm based float number
-`note` - midi note number, see the value in the downloaded .dspreset file of instrument
-`duration` - note duration, bpm based float number
-`velocity` - samples based volume value, float number between 0 and 1
+`time` - bpm based float number  
+`note` - midi note number, see the value in the downloaded .dspreset file of instrument  
+`duration` - note duration, bpm based float number  
+`velocity` - samples based volume value, float number between 0 and 1  
 `volume` - volume value, float number between 0 and 1
 
 ```javascript

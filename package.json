@@ -1,9 +1,12 @@
 {
   "name": "js-sampler",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Java Script Web Audio Sampler. Can read and play DecentSampler file format.",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "main": "./dist/js-sampler.umd.js",
   "module": "./dist/js-sampler.es.js",
   "exports": {

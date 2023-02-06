@@ -90,7 +90,7 @@ const composition = {
 ```javascript
 const player = new jsSampler.Player({
     loop: true,
-    mpm: 100,
+    bpm: 100,
     onLoad: ()=>{
         console.log(player)
         buttonPlay.addEventListener('click', () => {
@@ -103,10 +103,10 @@ const player = new jsSampler.Player({
             player.stop(true)
         })
         buttonBpm80.addEventListener('click', () => {
-            player.mpm = 80
+            player.bpm = 80
         })
         buttonBpm100.addEventListener('click', () => {
-            player.mpm = 100
+            player.bpm = 100
         })
     },
     data: composition,

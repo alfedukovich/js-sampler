@@ -643,7 +643,7 @@ const buttonBpm140 = document.querySelector<HTMLButtonElement>('#bpm140')!
 
 const player = new jsSampler.Player({
     loop: true,
-    mpm: 100,
+    bpm: 100,
     onLoad: ()=>{
         console.log(player)
         buttonPlay.addEventListener('click', () => {
@@ -656,16 +656,16 @@ const player = new jsSampler.Player({
             player.stop(true)
         })
         buttonBpm80.addEventListener('click', () => {
-            player.mpm = 80
+            player.bpm = 80
         })
         buttonBpm100.addEventListener('click', () => {
-            player.mpm = 100
+            player.bpm = 100
         })
         buttonBpm120.addEventListener('click', () => {
-            player.mpm = 120
+            player.bpm = 120
         })
         buttonBpm140.addEventListener('click', () => {
-            player.mpm = 140
+            player.bpm = 140
         })
     },
     data: composition,

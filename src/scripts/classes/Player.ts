@@ -21,7 +21,7 @@ export interface PalyerLayerOptions {
 export interface PalyerOptions {
     onLoad?: () => void
     loop: boolean
-    mpm: number
+    bpm: number
     data?: {
         duration: number
         layers: [PalyerLayerOptions]
@@ -38,7 +38,7 @@ export interface Layer {
 
 export class Player {
 
-    public _mpm: number = 0
+    public _bpm: number = 0
     public loop: boolean = false
 
     public duration: number = 0
@@ -70,17 +70,17 @@ export class Player {
         }
     }
 
-    get mpm(): number {
-        return this._mpm
+    get bpm(): number {
+        return this._bpm
     }
-    set mpm(mpm: number) {
+    set bpm(bpm: number) {
         const now = Tone.now()
-        const delta = mpm / this._mpm
-        const CurPos = ((now - this._startTime) / (60 / this._mpm)) % this.duration
-        this._mpm = mpm
+        const delta = bpm / this._bpm
+        const CurPos = ((now - this._startTime) / (60 / this._bpm)) % this.duration
+        this._bpm = bpm
 
         if (this._play) {
-            this._startTime = now - CurPos * (60 / this._mpm)
+            this._startTime = now - CurPos * (60 / this._bpm)
             this._buffPosition = CurPos
             this.currentCycle = 0
 
@@ -102,7 +102,7 @@ export class Player {
     }
 
     public set(options: PalyerOptions): Player{
-        this.mpm = options.mpm
+        this.bpm = options.bpm
         this.loop = options.loop
         this.onLoad = options.onLoad? options.onLoad: () => {}
 
@@ -165,7 +165,7 @@ export class Player {
                 if (this._paused) {
                     this._paused = false
                 }
-                this._startTime = Tone.now() - this.currentPosition * (60 / this._mpm)
+                this._startTime = Tone.now() - this.currentPosition * (60 / this._bpm)
                 this._play = true
                 this.scheduler()
             } else {
@@ -173,7 +173,7 @@ export class Player {
                     if (this._paused) {
                         this._paused = false
                     }
-                    this._startTime = Tone.now() - this.currentPosition * (60 / this._mpm)
+                    this._startTime = Tone.now() - this.currentPosition * (60 / this._bpm)
                     this._play = true
                     this.scheduler()
                 }
@@ -189,8 +189,8 @@ export class Player {
 
         if (!this._stopped && !this._paused) {
 
-            this.currentPosition = ((this.currentTime - this._startTime) / (60 / this._mpm)) % this.duration
-            this.currentCycle = Math.floor(((this.currentTime - this._startTime) / (60 / this._mpm)) / this.duration)
+            this.currentPosition = ((this.currentTime - this._startTime) / (60 / this._bpm)) % this.duration
+            this.currentCycle = Math.floor(((this.currentTime - this._startTime) / (60 / this._bpm)) / this.duration)
             this.currentPercent = this.currentPosition * (100 / this.duration)
 
             let buffLength = 4
@@ -220,11 +220,11 @@ export class Player {
                                         volume *= layer.volume
                                     }
 
-                                    const time_in_s = this._startTime + (this._buffPosition + pos_sum) * (60 / this._mpm)
+                                    const time_in_s = this._startTime + (this._buffPosition + pos_sum) * (60 / this._bpm)
                                     if (!event.duration) {
                                         layer.instrument.triggerAttack(event.note, time_in_s, event.velocity, volume)
                                     } else {
-                                        const duration_in_s = event.duration * (60 / this._mpm)
+                                        const duration_in_s = event.duration * (60 / this._bpm)
                                         layer.instrument.triggerAttackRelease(event.note, time_in_s, duration_in_s, event.velocity, volume)
                                     }
                                 }

@@ -24,8 +24,9 @@ export class Instrument {
 
     private _reverb: Tone.Reverb;
 
-    private fadeOut = 0.4
-    private fadeIn = 0
+    private _fadeOut = 0.4
+    private _fadeIn = 0
+    private _reverbWet = .5
 
 
     constructor(options: InstrumentOptions) {
@@ -38,8 +39,7 @@ export class Instrument {
             this.name = options.name
         }
 
-        const reverbWet = .1
-        this._reverb = new Tone.Reverb({wet:reverbWet, decay:2.2, preDelay:.05})//.toDestination()
+        //this._reverb = new Tone.Reverb({wet:this._reverbWet, decay:2.2, preDelay:.05}).toDestination()
     }
 
     private _onload = () => {
@@ -152,8 +152,8 @@ export class Instrument {
                         loop: sample_to_play.loopEnabled,
                         loopStart: sample_to_play.loopStart? sample_to_play.loopStart * source.sampleTime : undefined,
                         loopEnd: sample_to_play.loopEnd? sample_to_play.loopEnd * source.sampleTime : undefined,
-                        fadeOut: this.fadeOut,
-                        fadeIn: this.fadeIn,
+                        fadeOut: this._fadeOut,
+                        fadeIn: this._fadeIn,
                     })
 
                     const vel_vol = (midiVelocity / sample_to_play.hiVel) * volume

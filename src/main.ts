@@ -696,45 +696,61 @@ card.innerHTML = html
 const elements = card.querySelectorAll<HTMLButtonElement>('button')
 
 let sources: jsSampler.Source[] = []
+let event = ''
 elements.forEach((opt) => {
     opt.addEventListener('mousedown', (e) => {
+        event = 'mousedown'
         // @ts-ignore
         const velocity = e.layerY / opt.offsetHeight
         sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
     })
     opt.addEventListener('touchstart', (e) => {
+        event = 'touchstart'
         // @ts-ignore
         const rect = e.target?.getBoundingClientRect()
         const y = e.touches[0].clientY - rect.top
         const velocity = y / opt.offsetHeight
         sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
+
+        return false
     })
     opt.addEventListener('mouseleave', () => {
-        sources.forEach((source) => {
-            instr.triggerRelease(source, jsSampler.Tone.now())
-            const index = sources.indexOf(<Source>source)
-            if (index > -1) {
-                sources.splice(index, 1)
-            }
-        })
+        if (event === 'mousedown') {
+            sources.forEach((source) => {
+                instr.triggerRelease(source, jsSampler.Tone.now())
+                const index = sources.indexOf(<Source>source)
+                if (index > -1) {
+                    sources.splice(index, 1)
+                }
+            })
+            event = ''
+        }
     })
     opt.addEventListener('touchend', () => {
-        sources.forEach((source) => {
-            instr.triggerRelease(source, jsSampler.Tone.now())
-            const index = sources.indexOf(<Source>source)
-            if (index > -1) {
-                sources.splice(index, 1)
-            }
-        })
+        if (event === 'touchstart') {
+            sources.forEach((source) => {
+                instr.triggerRelease(source, jsSampler.Tone.now())
+                const index = sources.indexOf(<Source>source)
+                if (index > -1) {
+                    sources.splice(index, 1)
+                }
+            })
+            event = ''
+        }
+
+        return false
     })
     opt.addEventListener('mouseup', () => {
-        sources.forEach((source) => {
-            instr.triggerRelease(source, jsSampler.Tone.now())
-            const index = sources.indexOf(<Source>source)
-            if (index > -1) {
-                sources.splice(index, 1)
-            }
-        })
+        if (event === 'mousedown') {
+            sources.forEach((source) => {
+                instr.triggerRelease(source, jsSampler.Tone.now())
+                const index = sources.indexOf(<Source>source)
+                if (index > -1) {
+                    sources.splice(index, 1)
+                }
+            })
+            event = ''
+        }
     })
 })
 

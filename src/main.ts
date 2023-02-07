@@ -702,9 +702,10 @@ elements.forEach((opt) => {
         source = instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
     })
     opt.addEventListener('touchstart', (e) => {
-        console.log(e)
         // @ts-ignore
-        const velocity = (e.touches[0].clientY - e.target?.offsetTop) / opt.offsetHeight
+        const rect = e.target?.getBoundingClientRect()
+        const y = e.touches[0].clientY - rect.top
+        const velocity = y / opt.offsetHeight
         source = instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
     })
     opt.addEventListener('mouseleave', () => {

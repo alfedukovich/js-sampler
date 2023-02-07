@@ -213,7 +213,7 @@ export class Player {
 
             let buffLength = 16
 
-            if (this._buffPosition - (this.currentCycle * this.duration + this.currentPosition) < 2) { // пришла пора загрузить в буфер порцию
+            if (this._buffPosition - (this.currentCycle * this.duration + this.currentPosition) < 8) { // пришла пора загрузить в буфер порцию
 
                 const buffPositionInCycle = this._buffPosition % this.duration
 

@@ -211,7 +211,7 @@ export class Player {
             this.currentCycle = Math.floor(((this.currentTime - this._startTime) / (60 / this._bpm)) / this.duration)
             this.currentPercent = this.currentPosition * (100 / this.duration)
 
-            let buffLength = 4
+            let buffLength = 16
 
             if (this._buffPosition - (this.currentCycle * this.duration + this.currentPosition) < 2) { // пришла пора загрузить в буфер порцию
 

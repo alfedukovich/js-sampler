@@ -1,6 +1,7 @@
 import './scss/style.scss'
 import * as jsSampler from './scripts'
 import {PalyerCompositionOptions} from "./scripts/classes/Player";
+import {Source} from "./scripts";
 
 // const instr = new jsSampler.Instrument({
 //     name: 'organ',
@@ -694,37 +695,46 @@ card.innerHTML = html
 
 const elements = card.querySelectorAll<HTMLButtonElement>('button')
 
-let source: jsSampler.Source | null
+let sources: jsSampler.Source[] = []
 elements.forEach((opt) => {
     opt.addEventListener('mousedown', (e) => {
         // @ts-ignore
         const velocity = e.layerY / opt.offsetHeight
-        source = instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
+        sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
     })
     opt.addEventListener('touchstart', (e) => {
         // @ts-ignore
         const rect = e.target?.getBoundingClientRect()
         const y = e.touches[0].clientY - rect.top
         const velocity = y / opt.offsetHeight
-        source = instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
+        sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
     })
     opt.addEventListener('mouseleave', () => {
-        if(source) {
+        sources.forEach((source) => {
             instr.triggerRelease(source, jsSampler.Tone.now())
-            source = null
-        }
+            const index = sources.indexOf(<Source>source)
+            if (index > -1) {
+                sources.splice(index, 1)
+            }
+        })
     })
     opt.addEventListener('touchend', () => {
-        if(source) {
+        sources.forEach((source) => {
             instr.triggerRelease(source, jsSampler.Tone.now())
-            source = null
-        }
+            const index = sources.indexOf(<Source>source)
+            if (index > -1) {
+                sources.splice(index, 1)
+            }
+        })
     })
     opt.addEventListener('mouseup', () => {
-        if(source) {
+        sources.forEach((source) => {
             instr.triggerRelease(source, jsSampler.Tone.now())
-            source = null
-        }
+            const index = sources.indexOf(<Source>source)
+            if (index > -1) {
+                sources.splice(index, 1)
+            }
+        })
     })
 })
 

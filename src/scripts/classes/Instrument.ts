@@ -22,11 +22,11 @@ export class Instrument {
     public url: string
     public onLoad: () => void
 
-    //private _reverb: Tone.Reverb;
+    private _reverb: Tone.Reverb;
 
     private _fadeOut = 0.4
     private _fadeIn = 0
-    //private _reverbWet = .5
+    private _reverbWet = .5
 
 
     constructor(options: InstrumentOptions) {
@@ -39,7 +39,7 @@ export class Instrument {
             this.name = options.name
         }
 
-        //this._reverb = new Tone.Reverb({wet:this._reverbWet, decay:2.2, preDelay:.05}).toDestination()
+        this._reverb = new Tone.Reverb({wet:this._reverbWet, decay:2.2, preDelay:.05}).toDestination()
     }
 
     private _onload = () => {
@@ -136,7 +136,7 @@ export class Instrument {
 
                 if (time + duration >= 0) {
                     const volume_tun  = parseFloat(sample_to_play.volume.replace('dB', ''))
-                    const vol_filter = new Tone.Volume(volume_tun).toDestination()//.connect(this._reverb)
+                    const vol_filter = new Tone.Volume(volume_tun).connect(this._reverb)
                     const source = new Source().connect(vol_filter)
 
                     source.onended = (s) => {

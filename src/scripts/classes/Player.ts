@@ -66,6 +66,8 @@ export class Player {
 
 
     constructor(options?: PalyerOptions) {
+        Tone.setContext(new Tone.Context({ latencyHint : "playback" }))
+
         if (options) {
             this.set(options)
         }

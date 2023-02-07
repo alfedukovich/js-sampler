@@ -22,11 +22,11 @@ export class Instrument {
     public url: string
     public onLoad: () => void
 
-    private _reverb: Tone.Reverb;
+    //private _reverb: Tone.Reverb;
 
     private _fadeOut = 0.4
     private _fadeIn = 0
-    private _reverbWet = .5
+    //private _reverbWet = .5
 
 
     constructor(options: InstrumentOptions) {

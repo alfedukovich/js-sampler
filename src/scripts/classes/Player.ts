@@ -24,6 +24,7 @@ export interface PalyerCompositionOptions {
 }
 export interface PalyerOptions {
     onLoad?: () => void
+    onProgress?: () => void
     loop: boolean
     bpm: number
     composition?: PalyerCompositionOptions
@@ -37,15 +38,14 @@ export interface Layer {
 }
 
 
-export class Player {
+export class Player extends EventTarget {
 
     public _bpm: number = 0
     public loop: boolean = false
 
     public duration: number = 0
 
-    public onLoad: () => void = ()=>{}
-    public onStart: () => void = ()=>{}
+    private _onStart: () => void = ()=>{}
 
     public instruments: Instrument[] = []
     public layers: Layer[] = []
@@ -66,6 +66,8 @@ export class Player {
 
 
     constructor(options?: PalyerOptions) {
+        super()
+
         Tone.setContext(new Tone.Context({ latencyHint : "playback" }))
 
         if (options) {
@@ -107,7 +109,6 @@ export class Player {
     public set(options: PalyerOptions): Player{
         this.bpm = options.bpm
         this.loop = options.loop
-        this.onLoad = options.onLoad? options.onLoad: () => {}
 
         if (options.composition) {
             this.duration = options.composition.duration
@@ -120,8 +121,9 @@ export class Player {
     private _onload = () => {
         this._instrumentCount = this._instrumentCount - 1
         if (this._instrumentCount <= 0){
-            this.onLoad()
-            this.onStart()
+            const eventLoad = new CustomEvent("load")
+            this.dispatchEvent(eventLoad)
+            this._onStart()
         }
     }
 
@@ -165,9 +167,11 @@ export class Player {
     }
 
     public setInstrumentVolume(instrument_name: string, value: number){
-        const layers = this.getLayersByInstrumentName(instrument_name)
-        layers.forEach((layer) => {
-            layer.volume = value
+        const instrument = this.getInstrumentByName(instrument_name)
+        instrument.notes.forEach((note) => {
+            note.sources.forEach((source) => {
+                source.output.gain.rampTo(value, 0.1);
+            })
         })
     }
 
@@ -181,21 +185,23 @@ export class Player {
         if (!this._play) {
             this._stopped = false
 
-            if (this._instrumentCount <= 0){
+            const st = () => {
                 if (this._paused) {
                     this._paused = false
                 }
                 this._startTime = Tone.now() - this.currentPosition * (60 / this._bpm)
                 this._play = true
                 this.scheduler()
+
+                const event = new CustomEvent("start")
+                this.dispatchEvent(event)
+            }
+
+            if (this._instrumentCount <= 0){
+                st()
             } else {
-                this.onStart = ()=>{
-                    if (this._paused) {
-                        this._paused = false
-                    }
-                    this._startTime = Tone.now() - this.currentPosition * (60 / this._bpm)
-                    this._play = true
-                    this.scheduler()
+                this._onStart = ()=>{
+                    st()
                 }
             }
         }
@@ -212,6 +218,8 @@ export class Player {
             this.currentPosition = ((this.currentTime - this._startTime) / (60 / this._bpm)) % this.duration
             this.currentCycle = Math.floor(((this.currentTime - this._startTime) / (60 / this._bpm)) / this.duration)
             this.currentPercent = this.currentPosition * (100 / this.duration)
+            const onProgress = new CustomEvent("progress", {detail: {value: this.currentPercent}})
+            this.dispatchEvent(onProgress)
 
             let buffLength = 16
 
@@ -297,6 +305,9 @@ export class Player {
             })
         }
         this._play = false
+
+        const event = new CustomEvent("stop")
+        this.dispatchEvent(event)
     }
 
     public pause(){
@@ -307,6 +318,9 @@ export class Player {
             instrument.stopNotesSources()
         })
         this._play = false
+
+        const event = new CustomEvent("pause")
+        this.dispatchEvent(event)
     }
 
 }

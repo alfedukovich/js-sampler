@@ -648,37 +648,50 @@ const buttonVolumeS = document.querySelector<HTMLButtonElement>('#volumes')!
 const player = new jsSampler.Player({
     loop: true,
     bpm: 100,
-    onLoad: ()=>{
-        console.log(player)
-        buttonPlay.addEventListener('click', () => {
-            player.start()
-        })
-        buttonPause.addEventListener('click', () => {
-            player.pause()
-        })
-        buttonStop.addEventListener('click', () => {
-            player.stop(true)
-        })
-        buttonBpm80.addEventListener('click', () => {
-            player.bpm = 80
-        })
-        buttonBpm100.addEventListener('click', () => {
-            player.bpm = 100
-        })
-        buttonBpm120.addEventListener('click', () => {
-            player.bpm = 120
-        })
-        buttonBpm140.addEventListener('click', () => {
-            player.bpm = 140
-        })
-        buttonVolume.addEventListener('click', () => {
-            player.setInstrumentVolume('kartals', 1)
-        })
-        buttonVolumeS.addEventListener('click', () => {
-            player.setInstrumentVolume('kartals', .1)
-        })
-    },
     composition: composition,
+})
+
+player.addEventListener('load', ()=>{
+    console.log(player)
+    buttonPlay.addEventListener('click', () => {
+        player.start()
+    })
+    buttonPause.addEventListener('click', () => {
+        player.pause()
+    })
+    buttonStop.addEventListener('click', () => {
+        player.stop(true)
+    })
+    buttonBpm80.addEventListener('click', () => {
+        player.bpm = 80
+    })
+    buttonBpm100.addEventListener('click', () => {
+        player.bpm = 100
+    })
+    buttonBpm120.addEventListener('click', () => {
+        player.bpm = 120
+    })
+    buttonBpm140.addEventListener('click', () => {
+        player.bpm = 140
+    })
+    buttonVolume.addEventListener('click', () => {
+        player.setInstrumentVolume('kartals', 1)
+    })
+    buttonVolumeS.addEventListener('click', () => {
+        player.setInstrumentVolume('kartals', .1)
+    })
+})
+player.addEventListener('progress', (e) => {
+    //console.log(e.detail.value)
+})
+player.addEventListener('start', () => {
+    console.log('player start')
+})
+player.addEventListener('stop', () => {
+    console.log('player stop')
+})
+player.addEventListener('pause', () => {
+    console.log('player pause')
 })
 
 

@@ -1,5 +1,5 @@
-import * as Tone from "tone";
-import {Sample} from "./Sample";
+import * as Tone from "tone"
+import {Sample} from "./Sample"
 
 
 export class Source extends Tone.ToneBufferSource {

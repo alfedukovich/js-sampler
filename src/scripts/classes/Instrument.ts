@@ -1,8 +1,8 @@
-import {parseSamples} from "../lib";
-import {Sample} from "./Sample";
-import * as Tone from "tone";
-import {Note} from "./Note";
-import {Source} from "./Source";
+import {parseSamples} from "../lib"
+import {Sample} from "./Sample"
+import * as Tone from "tone"
+import {Note} from "./Note"
+import {Source} from "./Source"
 
 export interface InstrumentOptions {
     name: string;
@@ -22,11 +22,13 @@ export class Instrument {
     public url: string
     public onLoad: () => void
 
-    private _reverb: Tone.Reverb;
+    private _reverb: Tone.Reverb
 
     private _fadeOut = 0.4
     private _fadeIn = 0
     private _reverbWet = .5
+    private _reverbDecay = 2.2
+    private _reverbPreDelay = .05
 
 
     constructor(options: InstrumentOptions) {
@@ -39,7 +41,7 @@ export class Instrument {
             this.name = options.name
         }
 
-        this._reverb = new Tone.Reverb({wet:this._reverbWet, decay:2.2, preDelay:.05}).toDestination()
+        this._reverb = new Tone.Reverb({wet: this._reverbWet, decay: this._reverbDecay, preDelay: this._reverbPreDelay}).toDestination()
 
         // this._reverb = new Tone.Freeverb({
         //     roomSize: 0.97,
@@ -140,9 +142,15 @@ export class Instrument {
                 let duration = sample_to_play.loopEnabled? 10000: sample_to_play.buffer.duration / playbackRate
 
                 if (time + duration >= 0) {
-                    const volume_tun  = parseFloat(sample_to_play.volume.replace('dB', ''))
-                    const vol_filter = new Tone.Volume(volume_tun)
-                    const source = new Source().chain( vol_filter, this._reverb, Tone.getDestination());
+                    const volume_tun = parseFloat(sample_to_play.volume.replace('dB', ''))
+                    const vol_filter =
+                        volume_tun
+                            ? new Tone.Volume(volume_tun)
+                            : false
+                    const source =
+                        vol_filter
+                            ? new Source().chain( vol_filter, this._reverb, Tone.getDestination() )
+                            : new Source().chain( this._reverb, Tone.getDestination() )
 
                     source.onended = (s) => {
                         const index = note_obj.sources.indexOf(<Source>s)

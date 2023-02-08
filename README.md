@@ -22,7 +22,7 @@ import * as jsSampler from 'js-sampler'
 
 ### Composition format
 
-#### Instrument
+#### Instruments
 
 The format used to connect the instrument is [DecentSampler file format](https://www.decentsamples.com/docs/format-documentation.html)
 
@@ -39,13 +39,28 @@ Publish the folder with the instrument sample library and provide a link to the 
 ```javascript
 const composition = {
     duration: 4,
+    instruments: [
+        {
+            name: 'organ',
+            url: 'https://mc.v-helper.ru/media/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
+            volume: 1,
+            reverb: {
+                wet: .5,
+                decay: 2.2,
+                preDelay: .05,
+            },
+            fadeOut: .4,
+            fadeIn: 0,
+        },
+        {
+            name: 'kartals',
+            url: 'https://mc.v-helper.ru/media/instruments/kartals/Kartals.dspreset',
+            volume: .5,
+        },
+    ],
     layers: [
         {
-            volume: 1,
-            instrument: {
-                name: 'organ',
-                url: 'https://mc.v-helper.ru/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
-            },
+            instrument: 'organ',
             events: [
                 {
                     time: 0,
@@ -57,11 +72,7 @@ const composition = {
             ]
         },
         {
-            volume: .5,
-            instrument: {
-                name: 'kartals',
-                url: 'https://mc.v-helper.ru/instruments/kartals/Kartals.dspreset',
-            },
+            instrument: 'kartals',
             events: [
                 {
                     time: 0,

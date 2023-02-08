@@ -3,14 +3,12 @@ import {Sample} from "./Sample"
 import * as Tone from "tone"
 import {Note} from "./Note"
 import {Source} from "./Source"
+import {PlayerInstrumentOptions} from "./Player";
 
-export interface InstrumentOptions {
-    name: string;
-    url: string
-    onLoad?: () => void
+export interface InstrumentOptions extends PlayerInstrumentOptions{
 }
 
-export class Instrument {
+export class Instrument extends EventTarget {
 
     private _buffersCount: number = 0
 
@@ -20,19 +18,18 @@ export class Instrument {
     public notes: Note[] = []
 
     public url: string
-    public onLoad: () => void
 
     private _reverb: Tone.Reverb
 
-    private _fadeOut = 0.4
+    private _fadeOut = 0.1
     private _fadeIn = 0
-    private _reverbWet = .5
+    private _reverbWet = 0
     private _reverbDecay = 2.2
     private _reverbPreDelay = .05
 
 
     constructor(options: InstrumentOptions) {
-        this.onLoad = options.onLoad !== undefined ? options.onLoad : () => {}
+        super()
         this.url = options.url
         if (options.url) {
             this.load(options.url)
@@ -41,18 +38,33 @@ export class Instrument {
             this.name = options.name
         }
 
-        this._reverb = new Tone.Reverb({wet: this._reverbWet, decay: this._reverbDecay, preDelay: this._reverbPreDelay}).toDestination()
+        if (options.fadeIn){
+            this._fadeIn = options.fadeIn
+        }
+        if (options.fadeOut){
+            this._fadeOut = options.fadeOut
+        }
 
-        // this._reverb = new Tone.Freeverb({
-        //     roomSize: 0.97,
-        //     dampening: 20
-        // })
+        if (options.reverb){
+            if (options.reverb.wet){
+                this._reverbWet = options.reverb.wet
+            }
+            if (options.reverb.decay){
+                this._reverbDecay = options.reverb.decay
+            }
+            if (options.reverb.preDelay){
+                this._reverbPreDelay = options.reverb.preDelay
+            }
+        }
+
+        this._reverb = new Tone.Reverb({wet: this._reverbWet, decay: this._reverbDecay, preDelay: this._reverbPreDelay}).toDestination()
     }
 
     private _onload = () => {
         this._buffersCount = this._buffersCount - 1
         if (this._buffersCount <= 0){
-            this.onLoad()
+            const event = new CustomEvent("load")
+            this.dispatchEvent(event)
         }
     }
 

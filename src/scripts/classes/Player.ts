@@ -2,39 +2,48 @@ import {Instrument} from "./Instrument"
 import * as Tone from "tone"
 
 
-export interface PalyerInstrumentOptions {
+export interface PlayerInstrumentOptions {
     name: string
     url: string
+    reverb?: {
+        wet?: number
+        decay?: number
+        preDelay?: number
+    }
+    fadeOut?: number
+    fadeIn?: number
+    volume?: number
 }
-export interface PalyerEventOptions {
+
+export interface PlayerEventOptions {
     time: number
     note: number
     duration?: number
     velocity?: number
     volume?: number
 }
-export interface PalyerLayerOptions {
-    volume?: number
-    instrument: PalyerInstrumentOptions
-    events: PalyerEventOptions[]
+export interface PlayerLayerOptions {
+    instrument: string
+    events: PlayerEventOptions[]
 }
-export interface PalyerCompositionOptions {
+export interface PlayerCompositionOptions {
     duration: number
-    layers: PalyerLayerOptions[]
+    layers: PlayerLayerOptions[]
+    instruments: PlayerInstrumentOptions[]
 }
 export interface PalyerOptions {
     onLoad?: () => void
     onProgress?: () => void
     loop: boolean
     bpm: number
-    composition?: PalyerCompositionOptions
+    composition?: PlayerCompositionOptions
 }
 
 
 export interface Layer {
     volume?: number
     instrument: Instrument
-    events: PalyerEventOptions[]
+    events: PlayerEventOptions[]
 }
 
 
@@ -110,6 +119,10 @@ export class Player extends EventTarget {
         this.bpm = options.bpm
         this.loop = options.loop
 
+        options.composition?.instruments.forEach((instrument) => {
+            this.createInstrument(instrument)
+        })
+
         if (options.composition) {
             this.duration = options.composition.duration
             this.createLayers(options.composition.layers)
@@ -121,30 +134,28 @@ export class Player extends EventTarget {
     private _onload = () => {
         this._instrumentCount = this._instrumentCount - 1
         if (this._instrumentCount <= 0){
-            const eventLoad = new CustomEvent("load")
-            this.dispatchEvent(eventLoad)
+            const event = new CustomEvent("load")
+            this.dispatchEvent(event)
             this._onStart()
         }
     }
 
-    private createInstrument(instrument: PalyerInstrumentOptions): Instrument {
+    private createInstrument(instrument: PlayerInstrumentOptions): Instrument {
         let instrument_obj = this.getInstrumentByName(instrument.name)
         if (!instrument_obj) {
             this._instrumentCount++
-            instrument_obj = new Instrument({
-                name: instrument.name,
-                url: instrument.url,
-                onLoad: this._onload
+            instrument_obj = new Instrument(instrument)
+            instrument_obj.addEventListener('load', ()=>{
+                this._onload()
             })
             this.instruments.push(instrument_obj)
         }
         return instrument_obj
     }
-    private createLayers(layers: PalyerLayerOptions[]) {
+    private createLayers(layers: PlayerLayerOptions[]) {
         layers.forEach((layer) => {
             const layer_obj: Layer = {
-                volume: layer.volume!==undefined? layer.volume: 1,
-                instrument: this.createInstrument(layer.instrument),
+                instrument: this.getInstrumentByName(layer.instrument),
                 events: layer.events
             }
             this.layers.push(layer_obj)
@@ -274,7 +285,7 @@ export class Player extends EventTarget {
         }
     }
 
-    private _nextEvent(events: PalyerEventOptions[], startPosition: number, first: boolean): {event: PalyerEventOptions | null, findLength: number | null} {
+    private _nextEvent(events: PlayerEventOptions[], startPosition: number, first: boolean): {event: PlayerEventOptions | null, findLength: number | null} {
         const f_events = events.filter(event => {
             return first? event.time >= startPosition: event.time > startPosition
         })

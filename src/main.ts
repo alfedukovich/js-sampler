@@ -1,6 +1,6 @@
 import './scss/style.scss'
 import * as jsSampler from './scripts'
-import {PalyerCompositionOptions} from "./scripts/classes/Player";
+import {PlayerCompositionOptions} from "./scripts/classes/Player";
 import {Source} from "./scripts";
 
 // const instr = new jsSampler.Instrument({
@@ -40,15 +40,35 @@ import {Source} from "./scripts";
 
 
 
-const composition: PalyerCompositionOptions = {
+const composition: PlayerCompositionOptions = {
     duration: 64,
+    instruments: [
+        {
+            name: 'organ',
+            url: 'https://mc.v-helper.ru/media/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
+            volume: 1,
+            reverb: {
+                wet: .5,
+                decay: 2.2,
+                preDelay: .05,
+            },
+            fadeOut: .4,
+            fadeIn: 0,
+        },
+        {
+            name: 'kartals',
+            url: 'https://mc.v-helper.ru/media/instruments/kartals/Kartals.dspreset',
+            volume: .5,
+            reverb: {
+                wet: .3,
+                decay: 2.2,
+                preDelay: .05,
+            },
+        },
+    ],
     layers: [
         {
-            volume: 1,
-            instrument: {
-                name: 'organ',
-                url: 'https://mc.v-helper.ru/media/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
-            },
+            instrument: 'organ',
             events: [
                 {
                     time: 0,
@@ -335,11 +355,7 @@ const composition: PalyerCompositionOptions = {
             ]
         },
         {
-            volume: .5,
-            instrument: {
-                name: 'kartals',
-                url: 'https://mc.v-helper.ru/media/instruments/kartals/Kartals.dspreset',
-            },
+            instrument: 'kartals',
             events: [
                 {
                     time: 0,
@@ -712,23 +728,28 @@ let sources: jsSampler.Source[] = []
 let event = ''
 elements.forEach((opt) => {
     opt.addEventListener('mousedown', (e) => {
-        event = 'mousedown'
-        // @ts-ignore
-        const velocity = e.layerY / opt.offsetHeight
-        sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
+        if (event === '') {
+            event = 'mousedown,'+opt.id
+            // @ts-ignore
+            const velocity = e.layerY / opt.offsetHeight
+            sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
+        }
     })
     opt.addEventListener('touchstart', (e) => {
-        event = 'touchstart'
-        // @ts-ignore
-        const rect = e.target?.getBoundingClientRect()
-        const y = e.touches[0].clientY - rect.top
-        const velocity = y / opt.offsetHeight
-        sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
+        if (event === '') {
+            event = 'touchstart,'+opt.id
+            // @ts-ignore
+            const rect = e.target?.getBoundingClientRect()
+            const y = e.touches[0].clientY - rect.top
+            const velocity = y / opt.offsetHeight
+            sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
+        }
 
         return false
     })
     opt.addEventListener('mouseleave', () => {
-        if (event === 'mousedown') {
+        const [name, id] = event.split(',')
+        if (id == opt.id && name === 'mousedown') {
             sources.forEach((source) => {
                 instr.triggerRelease(source, jsSampler.Tone.now())
                 const index = sources.indexOf(<Source>source)
@@ -740,7 +761,8 @@ elements.forEach((opt) => {
         }
     })
     opt.addEventListener('touchend', () => {
-        if (event === 'touchstart') {
+        const [name, id] = event.split(',')
+        if (id == opt.id && name === 'touchstart') {
             sources.forEach((source) => {
                 instr.triggerRelease(source, jsSampler.Tone.now())
                 const index = sources.indexOf(<Source>source)
@@ -754,7 +776,8 @@ elements.forEach((opt) => {
         return false
     })
     opt.addEventListener('mouseup', () => {
-        if (event === 'mousedown') {
+        const [name, id] = event.split(',')
+        if (id == opt.id && name === 'mousedown') {
             sources.forEach((source) => {
                 instr.triggerRelease(source, jsSampler.Tone.now())
                 const index = sources.indexOf(<Source>source)

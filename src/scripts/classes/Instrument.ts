@@ -40,6 +40,11 @@ export class Instrument {
         }
 
         this._reverb = new Tone.Reverb({wet:this._reverbWet, decay:2.2, preDelay:.05}).toDestination()
+
+        // this._reverb = new Tone.Freeverb({
+        //     roomSize: 0.97,
+        //     dampening: 20
+        // })
     }
 
     private _onload = () => {
@@ -136,8 +141,8 @@ export class Instrument {
 
                 if (time + duration >= 0) {
                     const volume_tun  = parseFloat(sample_to_play.volume.replace('dB', ''))
-                    const vol_filter = new Tone.Volume(volume_tun).connect(this._reverb)
-                    const source = new Source().connect(vol_filter)
+                    const vol_filter = new Tone.Volume(volume_tun)
+                    const source = new Source().chain( vol_filter, this._reverb, Tone.getDestination());
 
                     source.onended = (s) => {
                         const index = note_obj.sources.indexOf(<Source>s)

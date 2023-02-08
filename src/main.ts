@@ -5,7 +5,7 @@ import {Source} from "./scripts";
 
 // const instr = new jsSampler.Instrument({
 //     name: 'organ',
-//     url: 'https://mc.v-helper.ru/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
+//     url: 'https://mc.v-helper.ru/media/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
 //     onLoad: ()=>{
 //         console.log(instr)
 //     },
@@ -13,7 +13,7 @@ import {Source} from "./scripts";
 //
 // const instr = new jsSampler.Instrument({
 //     name: 'ektra',
-//     url: 'https://mc.v-helper.ru/instruments/The Ektara.dsbundle/The Ektara - Normal Patch.dspreset',
+//     url: 'https://mc.v-helper.ru/media/instruments/The Ektara.dsbundle/The Ektara - Normal Patch.dspreset',
 //     onLoad: ()=>{
 //         console.log(instr)
 //     },
@@ -21,7 +21,7 @@ import {Source} from "./scripts";
 //
 // const instr = new jsSampler.Instrument({
 //     name: 'kalimba',
-//     url: 'https://mc.v-helper.ru/instruments/Gourd Kalimba.dsbundle/Kalimba.dspreset',
+//     url: 'https://mc.v-helper.ru/media/instruments/Gourd Kalimba.dsbundle/Kalimba.dspreset',
 //     onLoad: ()=>{
 //         console.log(instr)
 //     },
@@ -29,7 +29,7 @@ import {Source} from "./scripts";
 //
 // const instr = new jsSampler.Instrument({
 //     name: 'kartals',
-//     url: 'https://mc.v-helper.ru/instruments/kartals/Kartals.dspreset',
+//     url: 'https://mc.v-helper.ru/media/instruments/kartals/Kartals.dspreset',
 //     onLoad: ()=>{
 //         console.log(instr)
 //     },
@@ -47,7 +47,7 @@ const composition: PalyerCompositionOptions = {
             volume: 1,
             instrument: {
                 name: 'organ',
-                url: 'https://mc.v-helper.ru/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
+                url: 'https://mc.v-helper.ru/media/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
             },
             events: [
                 {
@@ -338,7 +338,7 @@ const composition: PalyerCompositionOptions = {
             volume: .5,
             instrument: {
                 name: 'kartals',
-                url: 'https://mc.v-helper.ru/instruments/kartals/Kartals.dspreset',
+                url: 'https://mc.v-helper.ru/media/instruments/kartals/Kartals.dspreset',
             },
             events: [
                 {

@@ -48,7 +48,7 @@ const composition: PlayerCompositionOptions = {
             url: 'https://mc.v-helper.ru/media/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
             volume: 1,
             reverb: {
-                wet: .5,
+                wet: .25,
                 decay: 2.2,
                 preDelay: .05,
             },
@@ -60,7 +60,7 @@ const composition: PlayerCompositionOptions = {
             url: 'https://mc.v-helper.ru/media/instruments/kartals/Kartals.dspreset',
             volume: .5,
             reverb: {
-                wet: .3,
+                wet: .15,
                 decay: 2.2,
                 preDelay: .05,
             },

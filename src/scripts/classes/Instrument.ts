@@ -27,6 +27,8 @@ export class Instrument extends EventTarget {
     private _reverbDecay = 2.2
     private _reverbPreDelay = .05
 
+    private _volume = 1
+
 
     constructor(options: InstrumentOptions) {
         super()
@@ -44,6 +46,9 @@ export class Instrument extends EventTarget {
         if (options.fadeOut){
             this._fadeOut = options.fadeOut
         }
+        if (options.volume){
+            this.volume = options.volume
+        }
 
         if (options.reverb){
             if (options.reverb.wet){
@@ -58,6 +63,20 @@ export class Instrument extends EventTarget {
         }
 
         this._reverb = new Tone.Reverb({wet: this._reverbWet, decay: this._reverbDecay, preDelay: this._reverbPreDelay}).toDestination()
+    }
+
+
+
+    get volume(): number {
+        return this._volume
+    }
+    set volume(value: number) {
+        this._volume = value
+        this.notes.forEach((note) => {
+            note.sources.forEach((source) => {
+                source.output.gain.rampTo(value, 0.1);
+            })
+        })
     }
 
     private _onload = () => {

@@ -42,7 +42,7 @@ export interface PalyerOptions {
 
 export interface Layer {
     volume?: number
-    instrument: Instrument
+    instrument?: Instrument
     events: PlayerEventOptions[]
 }
 
@@ -154,22 +154,28 @@ export class Player extends EventTarget {
     }
     private createLayers(layers: PlayerLayerOptions[]) {
         layers.forEach((layer) => {
+            const instrument = this.getInstrumentByName(layer.instrument)
             const layer_obj: Layer = {
-                instrument: this.getInstrumentByName(layer.instrument),
+                instrument: instrument?instrument:undefined,
                 events: layer.events
             }
             this.layers.push(layer_obj)
         })
     }
 
-    public getInstrumentByName(name: string): Instrument{
-        return this.instruments.filter((el: Instrument) => el.name === name)[0]
+    public getInstrumentByName(name: string): Instrument | undefined {
+        const instruments = this.instruments.filter((el: Instrument) => el.name === name)
+        if (instruments.length > 0) {
+            return instruments[0]
+        } else {
+            return undefined
+        }
     }
 
     public getLayersByInstrumentName(name: string): Layer[] {
         const result_layers: Layer[] = []
         this.layers.forEach((layer) => {
-            if (layer.instrument.name === name) {
+            if (layer.instrument?.name === name) {
                 result_layers.push(layer)
             }
         })
@@ -179,11 +185,7 @@ export class Player extends EventTarget {
 
     public setInstrumentVolume(instrument_name: string, value: number){
         const instrument = this.getInstrumentByName(instrument_name)
-        instrument.notes.forEach((note) => {
-            note.sources.forEach((source) => {
-                source.output.gain.rampTo(value, 0.1);
-            })
-        })
+        if (instrument) instrument.volume = value
     }
 
 
@@ -255,16 +257,16 @@ export class Player extends EventTarget {
                                 events_count++
                                 if (pos_sum <= buffLength) {
                                     let volume = event.volume?event.volume:1
-                                    if (layer.volume != null) {
-                                        volume *= layer.volume
+                                    if (layer.instrument?.volume != null) {
+                                        volume *= layer.instrument?.volume
                                     }
 
                                     const time_in_s = this._startTime + (this._buffPosition + pos_sum) * (60 / this._bpm)
                                     if (!event.duration) {
-                                        layer.instrument.triggerAttack(event.note, time_in_s, event.velocity, volume)
+                                        layer.instrument?.triggerAttack(event.note, time_in_s, event.velocity, volume)
                                     } else {
                                         const duration_in_s = event.duration * (60 / this._bpm)
-                                        layer.instrument.triggerAttackRelease(event.note, time_in_s, duration_in_s, event.velocity, volume)
+                                        layer.instrument?.triggerAttackRelease(event.note, time_in_s, duration_in_s, event.velocity, volume)
                                     }
                                 }
                                 pos = (buffPositionInCycle + pos_sum) % this.duration

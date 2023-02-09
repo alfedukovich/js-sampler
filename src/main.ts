@@ -58,6 +58,16 @@ const composition: PlayerCompositionOptions = {
         {
             name: 'kartals',
             url: 'https://mc.v-helper.ru/media/instruments/kartals/Kartals.dspreset',
+            volume: .4,
+            reverb: {
+                wet: .15,
+                decay: 2.2,
+                preDelay: .05,
+            },
+        },
+        {
+            name: 'mridang',
+            url: 'https://mc.v-helper.ru/media/instruments/mridang/Mridang.dspreset',
             volume: .5,
             reverb: {
                 wet: .15,
@@ -648,8 +658,88 @@ const composition: PlayerCompositionOptions = {
                 },
             ]
         },
+        {
+            instrument: 'mridang',
+            events: [
+                {
+                    time: 0,
+                    note: 79,
+                },
+                {
+                    time: 2,
+                    note: 77,
+                },
+                {
+                    time: 3,
+                    note: 79,
+                },
+                {
+                    time: 4,
+                    note: 79,
+                },
+                {
+                    time: 5,
+                    note: 76,
+                    velocity: .6
+                },
+                {
+                    time: 6,
+                    note: 77,
+                },
+                {
+                    time: 7,
+                    note: 79,
+                },
+            ]
+        },
+        {
+            instrument: 'mridang',
+            events: [
+                {
+                    time: 0,
+                    note: 76,
+                },
+                {
+                    time: 3,
+                    note: 74,
+                    velocity: .65
+                },
+                {
+                    time: 5,
+                    note: 76,
+                    velocity: .65
+                },
+                {
+                    time: 6,
+                    note: 76,
+                },
+            ]
+        },
     ]
 }
+
+composition.layers[2].events.forEach((event)=>{
+    for(let i=1; i<8; i++){
+        let new_event = {
+            time: event.time + i*8,
+            note: event.note,
+            velocity: event.velocity?event.velocity:1
+        }
+        composition.layers[2].events.push(new_event)
+    }
+})
+composition.layers[3].events.forEach((event)=>{
+    for(let i=1; i<8; i++){
+        let new_event = {
+            time: event.time + i*8,
+            note: event.note,
+            velocity: event.velocity?event.velocity:1
+        }
+        composition.layers[3].events.push(new_event)
+    }
+})
+
+
 
 const buttonPlay = document.querySelector<HTMLButtonElement>('#play')!
 const buttonPause = document.querySelector<HTMLButtonElement>('#pause')!
@@ -732,7 +822,8 @@ elements.forEach((opt) => {
             event = 'mousedown,'+opt.id
             // @ts-ignore
             const velocity = e.layerY / opt.offsetHeight
-            sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
+            const source = instr?.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
+            if (source) sources.push(source)
         }
     })
     opt.addEventListener('touchstart', (e) => {
@@ -742,7 +833,8 @@ elements.forEach((opt) => {
             const rect = e.target?.getBoundingClientRect()
             const y = e.touches[0].clientY - rect.top
             const velocity = y / opt.offsetHeight
-            sources.push(instr.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1))
+            const source = instr?.triggerAttack(parseInt(opt.id), jsSampler.Tone.now(), velocity, 1)
+            if (source) sources.push(source)
         }
 
         return false

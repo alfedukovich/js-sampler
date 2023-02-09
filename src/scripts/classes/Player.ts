@@ -164,7 +164,7 @@ export class Player extends EventTarget {
     }
 
     public getInstrumentByName(name: string): Instrument | undefined {
-        const instruments = this.instruments.filter((el: Instrument) => el.name === name)
+        const instruments = this.instruments.filter((el) => el.name === name)
         if (instruments.length > 0) {
             return instruments[0]
         } else {
@@ -292,10 +292,12 @@ export class Player extends EventTarget {
             return first? event.time >= startPosition: event.time > startPosition
         })
         if (f_events.length > 0) {
-            return {event: f_events[0], findLength: f_events[0].time - startPosition}
+            const lowest = f_events.reduce((prev, cur) => (cur.time < prev.time ? cur : prev));
+            return {event: lowest, findLength: lowest.time - startPosition}
         }
         if (this.loop) {
-            return {event: events[0], findLength: events[0].time + (this.duration - startPosition)}
+            const lowest = events.reduce((prev, cur) => (cur.time < prev.time ? cur : prev));
+            return {event: lowest, findLength: lowest.time + (this.duration - startPosition)}
         } else {
             return {event: null, findLength: null}
         }

@@ -129,6 +129,7 @@ export class Player extends EventTarget {
 
         if (options.composition) {
             this.duration = options.composition.duration
+            this.layers = []
             this.createLayers(options.composition.layers)
         }
 

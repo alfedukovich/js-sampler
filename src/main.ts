@@ -48,7 +48,7 @@ const composition: PlayerCompositionOptions = {
             url: 'https://mc.v-helper.ru/media/instruments/Chord Organ Exp.dsbundle/Chord Organ Exp 1.dspreset',
             volume: 1,
             reverb: {
-                wet: .25,
+                wet: 0,
                 decay: 2.2,
                 preDelay: .05,
             },
@@ -60,17 +60,17 @@ const composition: PlayerCompositionOptions = {
             url: 'https://mc.v-helper.ru/media/instruments/kartals/Kartals.dspreset',
             volume: .4,
             reverb: {
-                wet: .15,
+                wet: 0,
                 decay: 2.2,
                 preDelay: .05,
             },
         },
         {
             name: 'mridang',
-            url: 'https://mc.v-helper.ru/media/instruments/mridang/Mridang.dspreset',
+            url: 'https://mc.v-helper.ru/media/instruments/mridang/Mridang.web.dspreset',
             volume: .5,
             reverb: {
-                wet: .15,
+                wet: 0,
                 decay: 2.2,
                 preDelay: .05,
             },
@@ -787,7 +787,7 @@ player.addEventListener('load', ()=>{
         player.setInstrumentVolume('kartals', .1)
     })
 })
-player.addEventListener('progress', (e) => {
+player.addEventListener('progress', () => {
     //console.log(e.detail.value)
 })
 player.addEventListener('start', () => {
@@ -802,7 +802,7 @@ player.addEventListener('pause', () => {
 
 
 
-const instr = player.getInstrumentByName('organ')
+const instr = player.getInstrumentByName('organ')!
 
 const card = document.querySelector<HTMLDivElement>('.card')!
 

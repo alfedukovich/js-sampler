@@ -32,8 +32,6 @@ export interface PlayerCompositionOptions {
     instruments: PlayerInstrumentOptions[]
 }
 export interface PalyerOptions {
-    onLoad?: () => void
-    onProgress?: () => void
     loop: boolean
     bpm: number
     composition?: PlayerCompositionOptions
@@ -149,6 +147,8 @@ export class Player extends EventTarget {
                 this._onload()
             })
             this.instruments.push(instrument_obj)
+        } else {
+            this._onload()
         }
         return instrument_obj
     }

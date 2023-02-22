@@ -19,7 +19,7 @@ export class Instrument extends EventTarget {
 
     public url: string
 
-    private _reverb: Tone.Reverb
+    private _reverb?: Tone.Reverb
 
     private _fadeOut = 0.1
     private _fadeIn = 0
@@ -62,7 +62,10 @@ export class Instrument extends EventTarget {
             }
         }
 
-        this._reverb = new Tone.Reverb({wet: this._reverbWet, decay: this._reverbDecay, preDelay: this._reverbPreDelay}).toDestination()
+        this._reverb =
+            this._reverbWet
+                ? new Tone.Reverb({wet: this._reverbWet, decay: this._reverbDecay, preDelay: this._reverbPreDelay}).toDestination()
+                : undefined
     }
 
 
@@ -178,10 +181,16 @@ export class Instrument extends EventTarget {
                         volume_tun
                             ? new Tone.Volume(volume_tun)
                             : false
-                    const source =
-                        vol_filter
-                            ? new Source().chain( vol_filter, this._reverb, Tone.getDestination() )
-                            : new Source().chain( this._reverb, Tone.getDestination() )
+                    const source = new Source()
+                    if (vol_filter && this._reverb) {
+                        source.chain( vol_filter, this._reverb, Tone.getDestination() )
+                    } else if (vol_filter && !this._reverb) {
+                        source.chain( vol_filter, Tone.getDestination() )
+                    } else if (!vol_filter && this._reverb) {
+                        source.chain( this._reverb, Tone.getDestination() )
+                    } else {
+                        source.chain( Tone.getDestination() )
+                    }
 
                     source.onended = (s) => {
                         const index = note_obj.sources.indexOf(<Source>s)

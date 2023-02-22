@@ -117,6 +117,7 @@ export class Player extends EventTarget {
         this.bpm = options.bpm
         this.loop = options.loop
 
+        this._instrumentCount = options.composition ? options.composition.instruments.length : 0
         options.composition?.instruments.forEach((instrument) => {
             this.createInstrument(instrument)
         })
@@ -141,7 +142,6 @@ export class Player extends EventTarget {
     private createInstrument(instrument: PlayerInstrumentOptions): Instrument {
         let instrument_obj = this.getInstrumentByName(instrument.name)
         if (!instrument_obj) {
-            this._instrumentCount++
             instrument_obj = new Instrument(instrument)
             instrument_obj.addEventListener('load', ()=>{
                 this._onload()

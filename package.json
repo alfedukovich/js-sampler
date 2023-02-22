@@ -1,6 +1,6 @@
 {
   "name": "js-sampler",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Java Script Web Audio Sampler. Can read and play DecentSampler file format.",
   "type": "module",
   "files": [
@@ -18,7 +18,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build-demo": "tsc && vite build -c vite.demo.config.js",
+    "build-lib": "tsc && vite build -c vite.lib.config.js",
     "preview": "vite preview"
   },
   "devDependencies": {

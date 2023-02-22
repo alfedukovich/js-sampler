@@ -32,6 +32,7 @@ export interface PlayerCompositionOptions {
     instruments: PlayerInstrumentOptions[]
 }
 export interface PalyerOptions {
+    onLoad?: ()=>void
     loop: boolean
     bpm: number
     composition?: PlayerCompositionOptions
@@ -70,6 +71,8 @@ export class Player extends EventTarget {
     private _stopped: boolean = true
     private _paused: boolean = false
     private _play: boolean = false
+
+    private _onLoad: () => void = ()=>{}
 
 
     constructor(options?: PalyerOptions) {
@@ -114,6 +117,8 @@ export class Player extends EventTarget {
     }
 
     public set(options: PalyerOptions): Player{
+        if (options.onLoad) this._onLoad = options.onLoad
+
         this.bpm = options.bpm
         this.loop = options.loop
 
@@ -135,6 +140,7 @@ export class Player extends EventTarget {
         if (this._instrumentCount <= 0){
             const event = new CustomEvent("load")
             this.dispatchEvent(event)
+            this._onLoad()
             this._onStart()
         }
     }

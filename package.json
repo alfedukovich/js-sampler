@@ -1,6 +1,6 @@
 {
   "name": "js-sampler",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Java Script Web Audio Sampler. Can read and play DecentSampler file format.",
   "type": "module",
   "files": [

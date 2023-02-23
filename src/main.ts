@@ -755,19 +755,9 @@ const player = new jsSampler.Player({
     loop: true,
     bpm: 100,
     composition: composition,
-    onLoad: () => {
-        console.log('onLoad 1')
-
+    onReady: () => {
         buttonPlay.addEventListener('click', () => {
-            player.set({
-                loop: false,
-                bpm: 200,
-                composition: composition,
-                onLoad: () => {
-                    console.log('onLoad 2')
-                    player.start()
-                }
-            })
+            player.start()
         })
     }
 })

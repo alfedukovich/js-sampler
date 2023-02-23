@@ -115,7 +115,7 @@ export class Instrument extends EventTarget {
             // создание объектов семплов
             samples_arr.forEach((sample_props) => {
                 const {path} = sample_props
-                const buffer = new Tone.ToneAudioBuffer(this.baseUrl + encodeURIComponent(path.replaceAll('\\', '/')), this._onload)
+                const buffer = new Tone.ToneAudioBuffer(this.baseUrl + path.replaceAll('\\', '/'), this._onload)
                 this.samples.push( new Sample(buffer, sample_props) )
             })
 

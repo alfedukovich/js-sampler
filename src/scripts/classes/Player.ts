@@ -32,7 +32,7 @@ export interface PlayerCompositionOptions {
     instruments: PlayerInstrumentOptions[]
 }
 export interface PalyerOptions {
-    onLoad?: ()=>void
+    onReady?: ()=>void
     loop: boolean
     bpm: number
     composition?: PlayerCompositionOptions
@@ -72,7 +72,8 @@ export class Player extends EventTarget {
     private _paused: boolean = false
     private _play: boolean = false
 
-    private _onLoad: () => void = ()=>{}
+    private _onReady: () => void = ()=>{}
+    private _layersReady: boolean = false
 
 
     constructor(options?: PalyerOptions) {
@@ -117,7 +118,9 @@ export class Player extends EventTarget {
     }
 
     public set(options: PalyerOptions): Player{
-        if (options.onLoad) this._onLoad = options.onLoad
+        this._layersReady = false
+
+        if (options.onReady) this._onReady = options.onReady
 
         this.bpm = options.bpm
         this.loop = options.loop
@@ -129,19 +132,20 @@ export class Player extends EventTarget {
 
         if (options.composition) {
             this.duration = options.composition.duration
-            this.layers = []
             this.createLayers(options.composition.layers)
         }
+        this._layersReady = true
+        this._onload()
 
         return this
     }
 
     private _onload = () => {
         this._instrumentCount = this._instrumentCount - 1
-        if (this._instrumentCount <= 0){
+        if (this._instrumentCount <= 0 && this._layersReady){
             const event = new CustomEvent("load")
             this.dispatchEvent(event)
-            this._onLoad()
+            this._onReady()
             this._onStart()
         }
     }
@@ -160,6 +164,7 @@ export class Player extends EventTarget {
         return instrument_obj
     }
     private createLayers(layers: PlayerLayerOptions[]) {
+        this.layers = []
         layers.forEach((layer) => {
             const instrument = this.getInstrumentByName(layer.instrument)
             const layer_obj: Layer = {
